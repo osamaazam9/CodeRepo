@@ -1,0 +1,161 @@
+﻿@model SO.Urba.Models.ViewModels.ContactInfoVm
+@using SO.Urba.Models.ValueObjects
+@using SO.Urba.Models.ViewModels
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h3>Enter Contact Information</h3>
+        <hr /><div class="span12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.firstName , new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.firstName)
+                @Html.ValidationMessageFor(model => model.contactInfo.firstName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.lastName, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.lastName)
+                @Html.ValidationMessageFor(model => model.contactInfo.lastName)
+            </div>
+        </div>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.address, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.address)
+                @Html.ValidationMessageFor(model => model.contactInfo.address)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.city, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.city)
+                @Html.ValidationMessageFor(model => model.contactInfo.city)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.state, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.state)
+                @Html.ValidationMessageFor(model => model.contactInfo.state)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.zip, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.zip)
+                @Html.ValidationMessageFor(model => model.contactInfo.zip)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.homePhone, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.homePhone)
+                @Html.ValidationMessageFor(model => model.contactInfo.homePhone)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.workPhone, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.workPhone)
+                @Html.ValidationMessageFor(model => model.contactInfo.workPhone)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.fax, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.fax)
+                @Html.ValidationMessageFor(model => model.contactInfo.fax)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.cell, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.cell)
+                @Html.ValidationMessageFor(model => model.contactInfo.cell)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.email, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.email)
+                @Html.ValidationMessageFor(model => model.contactInfo.email)
+            </div>
+        </div>
+        @*
+    <div class="form-group">
+        @Html.LabelFor(model => model.contactInfo.created, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.contactInfo.created)
+            @Html.ValidationMessageFor(model => model.contactInfo.created)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.contactInfo.modified, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.contactInfo.modified)
+            @Html.ValidationMessageFor(model => model.contactInfo.modified)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.contactInfo.createdBy, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.contactInfo.createdBy)
+            @Html.ValidationMessageFor(model => model.contactInfo.createdBy)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.contactInfo.modifiedBy, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.contactInfo.modifiedBy)
+            @Html.ValidationMessageFor(model => model.contactInfo.modifiedBy)
+        </div>
+    </div>
+*@
+        <div class="form-group">
+            @Html.LabelFor(model => model.contactInfo.isActive, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.contactInfo.isActive)
+                @Html.ValidationMessageFor(model => model.contactInfo.isActive)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span9">
+                <br />
+                <a href="@Url.Action("Index")" class="btn">Back to List</a>
+                <input type="submit" value="Create" class="btn pull-right btn-info" />
+            </div>
+        </div> 
+
+    </div>
+}

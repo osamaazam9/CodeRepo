@@ -1,0 +1,164 @@
+﻿@model object
+@using SO.Utility.Models.ViewModels
+@using SO.Urba.Models.ValueObjects
+@using SO.Urba.Models.ViewModels
+@using SO.Urba.Manager.Models.ViewModels
+@using SO.Utility.Extensions;
+@{
+    ViewBag.Title = "Reports";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+
+    List<SelectListItem> optionsList = new List<SelectListItem>();
+    optionsList.Add(new SelectListItem { Text = "Select a Report", Value = "" });
+    optionsList.Add(new SelectListItem { Text = "Category Referrals By Date", Value = "1" });
+    optionsList.Add(new SelectListItem { Text = "Category Satisfaction By Date", Value = "2" });
+    optionsList.Add(new SelectListItem { Text = "Provider Referral By Date", Value = "3" });
+    optionsList.Add(new SelectListItem { Text = "Client Referral By Date", Value = "4" });
+    optionsList.Add(new SelectListItem { Text = "New: Type of Category Referral By Date", Value = "5" });
+    optionsList.Add(new SelectListItem { Text = "New: All Referrals For a Given Date", Value = "6" });
+    optionsList.Add(new SelectListItem { Text = "New: All Referrals For a Client By a Given Date", Value = "7" });
+
+    ViewData["selectReport"] = new SelectList(optionsList, "Value", "Text");
+}
+<h2>@ViewBag.Title</h2>
+
+@if (Model != null)
+{
+
+    <form id="filterForm2" method="get">
+        <hr />
+        <div class="span12 form-control">
+            <div style="width: 200px; float: left;">
+                <div>
+                    @Html.DropDownList("selectReport", null, new { @id = "selectReport" })
+                </div>
+                <div id="searchFilter">
+                    @Html.Partial("_SearchFilter", @Model)
+                    <br />
+                </div>
+                <div id="categorySearch">
+                    @Html.Partial("_SpecificCategoryReferralsByDate", new SpecificCategoryReferralsByDateVM())
+                </div>
+                <div id="allReferralsSearch">
+                    @Html.Partial("_AllReferralsByDate", new AllReferralsByDateVM())
+                </div>
+                <div id="allReferralsForaClientSearch">
+                    @Html.Partial("_AllReferralsForaClient", new AllReferralsForaClientVM())
+                </div>
+                <div>
+                    <br />
+                    <input id="exportBtn" type="submit" class="btn btn-info" style="width:75px" value="Export" />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </form>
+
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#categorySearch").hide();
+        $("#allReferralsSearch").hide();
+        $("#allReferralsForaClientSearch").hide();
+        $('.datepicker').hide()
+        $('.datepicker-inline').hide();
+        $('#selectReport').on('change', function () {
+            if (this.value == "" || this.value == '1' || this.value == '2' || this.value == '3' || this.value == '4') {
+                $("#categorySearch").hide();
+                $("#allReferralsSearch").hide();
+                $("#allReferralsForaClientSearch").hide();
+                $("#searchFilter").show();
+            }
+            else if (this.value == '5') {
+                $("#searchFilter").hide();
+                $("#allReferralsSearch").hide();
+                $("#allReferralsForaClientSearch").hide();
+                $("#categorySearch").show();
+            }
+            else if (this.value == '6') {
+                $("#categorySearch").hide();
+                $("#searchFilter").hide();
+                $("#allReferralsForaClientSearch").hide()
+                $("#allReferralsSearch").show();
+            }
+            else if (this.value == '7') {
+                $("#categorySearch").hide();
+                $("#searchFilter").hide();
+                $("#allReferralsSearch").hide();
+                $("#allReferralsForaClientSearch").show();
+            }
+            else {
+                alert("Please pick a valid selection!");
+            }
+        });
+    $("#exportBtn").click(function () {
+
+        var form = $("#filterForm2");
+        var company = $("#companyId");
+        var client = $("#clientId");
+        var client1 = $("#clientId1");
+        var categoryName = $("#categoryName");
+        var startDate = $("#fDate2");
+        var finishDate = $("#tDate2");
+        var reportid = $("#selectReport").val();
+
+        switch (reportid)
+        {
+            case "1":
+                form.attr("action", "@Url.Action("CategoryReferralByDate", "Report")");
+                break;
+            case "2":
+                form.attr("action", "@Url.Action("CategorySatisfactionByDate", "Report")");
+                break;
+            case "3":
+                if (company.val() == "") {
+                    alert("Please select a Provider!");
+                    return false;
+                }
+                else{
+                    form.attr("action", "@Url.Action("ProdiverReferralByDate", "Report")");
+                }
+                break;
+            case "4":
+                if (client.val() == "") {
+                    alert("Please select a Client!");
+                    return false;
+                }
+                else {
+                    form.attr("action", "@Url.Action("ClientReferralByDate", "Report")");
+                }
+                break;
+            case "5":
+                if (categoryName.val() == "") {
+                    alert("Please select a category name!");
+                    return false;
+                }
+                else {
+                    form.attr("action", "@Url.Action("SpecificCategoryReferralsByDateFile", "Report")");
+                }
+                break;
+            case "6":
+                if (startDate.val() == "" || finishDate.val() == "") {
+                    alert("Please input dates!");
+                    return false;
+                }
+                else {
+                    form.attr("action", "@Url.Action("AllReferralsByDateFile", "Report")");
+                }
+                break;
+            case "7":
+                if (client1.val() == "") {
+                    alert("Please select a Client!");
+                    return false;
+                }
+                else {
+                    form.attr("action", "@Url.Action("AllReferralsForaClientFile", "Report")");
+                }
+                break;
+
+            default:
+                alert("Please select a report!");
+        }
+    });
+    });
+</script>

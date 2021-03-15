@@ -1,0 +1,51 @@
+﻿@model List<object>
+@using SO.Urba.Models.ValueObjects
+@using SO.Utility.Extensions;
+@{
+    ViewBag.Title = "_List";
+    var result = Model.convertTo<OrganizationVo>();
+}
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Fee Amount
+        </th>
+        <th>
+            Has Paid Fee
+        </th>
+        <th>
+            Contact Name
+        </th>
+        <th>
+
+        </th>
+    </tr>
+
+    @foreach (var item in result)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.feeAmount)
+            </td>
+            <td>
+                @Html.Label(item.hasPaidFee == null ? "N/A" : item.hasPaidFee.Value.ToString())
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contactInfo.fullname)
+            </td>
+            <td style="width:150px">
+                <a href="@Url.Action("Edit", new { id = item.organizationId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+                <a href="@Url.Action("Details", new { id = item.organizationId })" class="btn" title="Details"><i class="icon-list"></i></a>
+                <a href="@Url.Action("Delete", new { id = item.organizationId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

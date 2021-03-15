@@ -1,0 +1,93 @@
+﻿@using SO.Urba.Managers
+
+    <ul class="nav nav-pills pull-left nav-list-menu">
+        @if (CurrentMember.isAuthenticated)
+        {
+            if (CurrentMember.hasRoleOf("admin"))
+            {
+
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "Member", new { isActive = true })" class="dropdown-toggle">Users<b class="caret white-caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "MemberRoleType", new { isActive = true})">System Roles</a></li>
+                        <li><a href="@Url.Action("Index", "Member", new { isActive = true })">User Manager</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Create", "Member")">New User</a></li>
+                    </ul>
+                </li>
+            }
+            <li class="dropdown">
+                <a href="@Url.Action("Index", "Client", new { isActive = true })" class="dropdown-toggle">Clients<b class="caret white-caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("Index", "Client", new { isActive = true })">Clients</a></li>
+                    @if (CurrentMember.hasRoleOf("admin"))
+                    {
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Create","Client")">New Client</a></li>
+                    }
+                </ul>
+            </li>
+
+            if (CurrentMember.hasRoleOf("admin"))
+            {
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "Organization", new { isActive = true })" class="dropdown-toggle">Organizations<b class="caret white-caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "Organization", new { isActive = true })">Organizations</a></li>
+                        <li><a href="@Url.Action("Index", "OrganizationOverview", new { isActive = true })">Organizations Overview</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Create", "Organization")">New Organization</a></li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "Company", new { isActive = true })" class="dropdown-toggle">Service Providers<b class="caret white-caret"></b></a>
+                    <ul class="dropdown-menu">
+
+                        <li><a href="@Url.Action("Index", "Company", new { isActive = true })">Providers</a></li>
+                        <li><a href="@Url.Action("Index", "CompanyCategoryType", new { isActive = true })">Provider Categories</a></li>
+                        @if (CurrentMember.hasRoleOf("admin"))
+                        {
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("Create", "Company")">New Provider</a></li>
+                            <li><a href="@Url.Action("Create", "CompanyCategoryType")">New Category</a></li>
+                        }
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="@Url.Action("Index", "QuestionType", new { isActive = true })" class="dropdown-toggle">Survey Questions<b class="caret white-caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "QuestionType", new { isActive = true })">Questions</a></li>
+                        @if (CurrentMember.hasRoleOf("admin"))
+                        {
+                            <li class="divider"></li>
+                            <li><a href="@Url.Action("Create", "QuestionType")">Add Question</a></li>
+                        }
+                    </ul>
+                </li>
+            }
+            <li class="dropdown">
+                <a href="@Url.Action("Index", "Report", new { isActive = true })" class="dropdown-toggle">Reports<b class="caret white-caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("Index", "Report")">Reports</a></li>
+                </ul>
+            </li>
+            if (CurrentMember.hasRoleOf("admin"))
+            {
+                <li>
+                    <a href="@Url.Action("CMS", "HTML", new { isActive = true })" class="dropdown-toggle">CMS<b class="caret white-caret"></b></a>
+                </li>
+            }
+        }
+
+
+        <li class="dropdown">
+            <a href="@Url.Action("About", "Home")" class="dropdown-toggle">Help<b class="caret white-caret"></b></a>
+            <ul class="dropdown-menu">
+
+                <li><a href="@Url.Action("About", "Home")">About</a></li>
+                <li><a href="@Url.Action("CreatedBy", "Home")">Created by</a></li>
+            </ul>
+        </li>
+    </ul>

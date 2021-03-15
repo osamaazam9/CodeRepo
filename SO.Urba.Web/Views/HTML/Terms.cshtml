@@ -1,0 +1,381 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+
+    <title> Urban Network </title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Theme ~/style -->
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <!-- Favicon and touch icons  -->
+    <link rel="shortcut icon" href="~/assets/icon/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/icon/apple-touch-icon-158-precomposed.png">
+    <!--navigation bar link-->
+    <style>
+        ul, ol {
+    padding: 0;
+    margin: 0 30px 20px 30px;
+}
+        #comments p {
+    font-size: 14px;
+    text-align: justify;
+    font-style:italic;
+}
+
+
+    </style>
+</head>
+
+<body class="header-style-1 menu-has-search menu-has-cart">
+    <!--navbar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="" href="#"><img src="~/images/urban-logo-Copy.jpg" class="img-responsive" alt="logo" /></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div class="collapse navbar-collapse" id="myNavbar">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="nav navbar-nav navbar-right social-icon">
+                                    <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-youtube"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+
+
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="nav navbar-nav navbar-right menu-margin">
+                                    <li><a href="~/HTML/index">HOME</a></li>
+                                    <li><a href="~/HTML/our_services">SERVICES</a></li>
+                                    <li><a href="~/HTML/about_us">ABOUT US</a></li>
+                                    <li><a href="~/HTML/how_it_work">HOW IT WORKS</a></li>
+                                    <li><a href="~/HTML/blog">BLOG</a></li>
+                                    <li><a href="~/HTML/FAQ">FAQ</a></li>
+                                    <li><a href="~/HTML/Testimonials">TESTIMONIALS</a></li>
+                                    <li><a href="~/HTML/contact_us" style="border:0;padding-right:0;">CONTACT US</a></li>
+                                    <li><button class="btn" onclick="location.href='@Url.Action("Login","Account",  new { target="_blank" })'"><span class="fa fa-user-circle-o">&nbsp;&nbsp; </span>LOGIN / REGISTER</button></li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper" class="animsition">
+        <div id="page" class="clearfix">
+            <!--about banner section-1-->
+            <div class="text-center banner-back smallbanner">
+                <h1 class="bold"> TERMS & CONDITIONS </h1>
+            </div>
+            <!-- Main Content -->
+            <div id="main-content" class="site-main clearfix">
+                <div id="content-wrap" class="container">
+                    
+
+                    <div class="row">
+                        <div id="inner-content" class="inner-content-wrap">
+                            <div class="post-content-single-wrap">
+                                <article>
+                                    <div id="comments" class="comments-area">
+                                        <!--  <h2 class="comments-title">	FAQ </h2>-->
+                                        <ol style="list-style:none;">
+                                            <li>
+                                                <h6 class="bold">1. ACCEPTANCE OF TERMS</h6>
+                                                <p>The services that Urban Referral Network (hereafter “URN”) provides to the User vis a vis, the Homeowner is subject to the following Terms and Conditions ("TAC"). Urban Referral Network reserves the right to update the TAC at any time without notice to User. The most current version of the TAC can be reviewed by clicking on the "Terms and Conditions" hypertext link located at the bottom of our Web pages. </p>
+                                                <ol style="list-style: upper-alpha;">
+                                                    <li>
+                                                        <p>This Agreement, which incorporates by reference other provisions applicable to the use of Urban Referral Network, including, but not limited to, supplemental terms and conditions set forth hereof ("Supplemental Terms") governing the use of certain specific material contained on <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a>, which sets forth the terms and conditions that apply to use of <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> by User(s). By using Urban Referral Network (other than to read this Agreement for the first time), User agrees to comply with all of the terms and conditions hereof. The right to use <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> is personal to User and is not transferable to any other person or entity. </p>
+                                                    </li>
+                                                    <li>
+                                                        <p>
+                                                            Urban Referral Network shall have the right at any time to change or discontinue any aspect or feature of Urban Referral Network, including, but not limited to, content, services, and hours of availability, access or use.
+                                                        </p>
+                                                    </li>
+                                                </ol>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold"> 2. CHANGED TERMS</h6>
+                                                <p> Urban Referral Network shall have the right at any time to change or modify the terms and conditions applicable to a User's use of <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> or any part thereof, or to impose new conditions. Such changes, modifications, additions or deletions shall be effective immediately upon notice thereof, which may be given by means including, but not limited to, posting on <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a>, by electronic or conventional mail, or by any other means by which a User obtains notice thereof. Any use of <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> by a User after such notice shall be deemed to constitute acceptance by the User of such changes, modifications or additions. </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold"> 3. DESCRIPTION OF SERVICES</h6>
+                                                <p> Through its Web property, Urban Referral Network provides User(s) with access to a variety of resources, including access to qualified contractors, architects and/or planners, construction services, repair services, emergency services, project management and permits (collectively "Services"). The Services, including any updates, enhancements, new features, and/or the addition of any new Web properties, are subject to the TAC.  </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">4.	USER CONDUCT</h6>
+                                                <ol style="list-style: upper-alpha;">
+                                                    <li>
+                                                        <p>
+                                                            User shall use <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> for lawful purposes only. User shall not post or transmit through <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> any material which violates or infringes in any way upon the rights of others, which is unlawful, threatening, abusive, defamatory, invasive of privacy or publicity rights, vulgar, obscene, profane or otherwise objectionable, which encourages conduct that would constitute a criminal offense, give rise to civil liability or otherwise violate any law, of which, without Urban Referral Network 's express prior approval, contains advertising or any solicitation with respect to products or services. Any conduct by a User that in Urban Referral Network's
+                                                            discretion restricts or inhibits any other User from using or enjoying <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> will not be permitted. User shall not use <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> to advertise or perform any commercial solicitation, including, but not limited to, the solicitation of users to become subscribers of other on-line information services competitive with Urban Referral Network.
+                                                        </p>
+                                                    </li>
+                                                    <li>
+                                                        <p><a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> contains copyrighted material, trademarks and other proprietary information, including, but not limited to, text, software, photos, video, graphics, music and sound, and the entire contents of <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> are copyrighted as a collective work under the United States of America copyright laws.</p>
+                                                    </li>
+                                                </ol>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">5.	USE OF SERVICES</h6>
+                                                <p>The User agrees to use the Urban Referral Network for the sole purpose of finding services as referred to above in section 3. By way of example, and not as a limitation, Users agree that when using <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a>, the User will not:  </p>
+                                                <ul style="list-style-image: url(/images/square-1.png);">
+                                                    <li><p>Use the Services in connection with surveys, contests, pyramid schemes, chain letters, junk email, spamming or any duplicative or unsolicited messages (commercial or otherwise); </p> </li>
+                                                    <li><p>Defame, abuse, harass, stalk, threaten or otherwise violate the legal rights (such as rights of privacy and publicity) of others; </p></li>
+                                                    <li><p>Publish, post, upload, distribute or disseminate any inappropriate, profane, defamatory, obscene, indecent or unlawful topic, name, material or information; </p> </li>
+                                                    <li><p>Upload, or otherwise make available, files that contain images, photographs, software or other material protected by intellectual property laws, including, by way of example, and not as limitation, copyright or trademark laws (or by rights of privacy or publicity) unless User own or control the rights thereto or have received all necessary consent to do the same;</p> </li>
+                                                    <li><p>Use any material or information, including images or photographs, which are made available through the Services in any manner that infringes any copyright, trademark, patent, trade secret, or other proprietary right of any party; </p> </li>
+                                                    <li><p>Upload files that contain viruses, Trojan horses, worms, time bombs, corrupted files, or any other similar software or programs that may damage the operation of another's computer or property of another; </p> </li>
+                                                    <li><p>Advertise or offer to sell or buy any goods or services for any business purpose, unless such Referral Service specifically allows such messages; </p> </li>
+                                                    <li><p>Download any file posted by another user of a Referral Service that User know, or reasonably should know, cannot be legally reproduced, displayed, performed, and/or distributed in such manner; </p></li>
+                                                    <li><p>Restrict or inhibit any other user from using www.urbanrefferals.com;</p></li>
+                                                    <li><p>Harvest or otherwise collect information about others, including email addresses;</p> </li>
+                                                    <li><p>Violate any applicable laws or regulations;</p> </li>
+                                                    <li><p>Create a false identity for the purpose of misleading others; and </p> </li>
+                                                    <li><p>Use, download or otherwise copy, or provide (whether or not for a fee) to a person or entity any directory of users of the Services or other user or usage information or any portion thereof. </p></li>
+
+                                                </ul>
+                                                <p>
+                                                    Urban Referral Network has no obligation to monitor the Services provided by a business and/or service provider participating in our Network. However, Urban Referral Network will stand behind you in the process until you are satisfied and will not endorse any business unless it passes our screening requirements, including a customer satisfaction background investigation. Urban Referral Network reserves the right at all times to disclose any information as it deems necessary to satisfy any applicable law, regulation, legal process or governmental request, or to edit, refuse to post or to remove any information or materials,
+                                                    in whole or in part, in Urban Referral Network's sole discretion. Always use caution when giving out any personally identifiable information in any Services.
+                                                </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">6.	MATERIALS PROVIDED TO URBAN REFERRAL NETWORK OR POSTED AT URBAN REFERRAL WEBSITE</h6>
+                                                <p>Urban Referral Network does not claim ownership of the materials used by a service provider participating in our Network.   However, by posting, uploading, inputting, providing or submitting ("Posting") the User hereby grants Urban Referral Network, its affiliated companies and necessary sub licensees permission to use a User’s information in connection with providing access to qualified service provides. </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">7.	DISCLAIMER OF WARRANTY; LIMITATION OF LIABILITY</h6>
+                                                <ol style="list-style:upper-alpha;">
+                                                    <li><p>	USER EXPRESSLY AGREES THAT THE USE OF <a href="WWW.URBANREFERRALNETWORK.COM"><u>WWW.URBANREFERRALNETWORK.COM</u></a>  IS AT USER'S SOLE RISK. NEITHER URBAN REFERRAL NETWORK, ITS AFFILIATES NOR ANYOF THEIR RESPECTIVE EMPLOYEES, AGENTS, THIRD PARTY CONTENT PROVIDERS OR LICENSORS WARRANT THAT <a href="WWW.URBANREFERRALNETWORK.COM"><u>WWW.URBANREFERRALNETWORK.COM</u></a> WILL BE UNINTERRUPTED OR ERROR FREE; NOR DO THEY MAKE ANY WARRANTY AS TO THE RESULTS THAT MAY BEOBTAINED FROM USE OF <a href="WWW.URBANREFERRALNETWORK.COM"><u>WWW.URBANREFERRALNETWORK.COM</u></a>, OR AS TO THE ACCURACY, RELIABILITY OR CONTENT OF ANY INFORMATION, SERVICE, OR MERCHANDISE PROVIDED THROUGH <a href="WWW.URBANREFERRALNETWORK.COM"><u>WWW.URBANREFERRALNETWORK.COM</u></a>.</p> </li>
+                                                    <li><p>	THE USER EXPRESSLY AGREES THAT URBAN REFERRAL NETWORK IS NOT A CONTRACTOR, AGENT OR ADVISOR. THEREFORE, THE SELECTION, USE AND NEGOTIATION OF THE TERMS OF WORK PERFORMED OR TO BE PERFORMED BY A CONTRACTOR PARTICIPATING IN THE URBAN REFERRAL NETWORK IS THE SOLE RESPONSIBILITY OF THE USER. THE USER AGREES TO SATISFY THEMSELVES THAT THE CONTRACTOR MEETS THE STANDARDS OF WORK REQUIRED OR DESIRED. THE USER  HEREBY HOLDS URBAN REFERRAL HARMLESS FROM ANY DEFECT IN WORKMANSHIP, DEFAULT, DAMAGE, INJURY OR EXPENSE ARISING OUT OF THE WORK PERFORMED BY A CONTRACTOR REFERRED BY URBAN REFERRAL AND HIRED BY THE USER. THE HOMEOWNER/USER SHALL DEFEND AND INDEMNIFY URBAN REFERRA, ITS AGENTS, EMPLOYEES, AND MEMBERS, FOR ANY AND ALL LIABILITIES, CLAIMS, AND/OR EXPENSES OF ANY KIND WHATSOEVER ARISING FROM URBAN REFERRALS REFERRAL OF CONTRACTORS OR OTHERS TO THE HOMEOWNER/USER.</p> </li>
+                                                    <li> <p>	<a href="WWW.URBANREFERRALNETWORK.COM"><u>WWW.URBANREFERRALNETWORK.COM</u></a> IS PROVIDED ON AN "AS IS" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF TITLE OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, OTHER THAN THOSE WARRANTIES WHICH ARE IMPLIED BY AND INCAPABLE OF EXCLUSION, RESTRICTION OR MODIFICATION UNDER THE LAWS APPLICABLE TO THIS AGREEMENT.</p> </li>
+                                                    <li><p>	THIS DISCLAIMER OF LIABILITY APPLIES TO ALL DAMAGES OR INJURY CAUSED BY ANY FAILURE OF PERFORMANCE, ERROR, OMISSION, INTERRUPTION, DELETION, DEFECT, DELAY IN OPERATION OR TRANSMISSION, COMPUTER VIRUS, COMMUNICATION LINE FAILURE, THEFT OR DESTRUCTION OR UNAUTHORIZED ACCESS TO, ALTERATION OF, OR USE OF RECORD, WHETHER FOR BREACH OF CONTRACT, TORTIOUS BEHAVIOR, NEGLIGENCE, OR UNDER ANY OTHER CAUSE OF ACTION. THE USER SPECIFICALLY ACKNOWLEDGES THAT URBAN REFERRAL NETWORK IS NOT LIABLE FOR THE DEFAMATORY, OFFENSIVE OR ILLEGAL CONDUCT OF OTHER USERS OR THIRD-PARTIES AND THAT THE RISK OF INJURY FROM THE FOREGOING RESTS ENTIRELY WITH USER. </p>  </li>
+                                                    <li>
+                                                        <p>
+                                                            IN NO EVENT WILL URBAN REFERRAL NETWORK, OR ANY AFFILIATES OR REPRESENTATIVES, BE HELD LIABLE FOR ANY DAMAGES, INCLUDING, WITHOUT LIMITATION, DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES ARISING OUT OF THE USE OF OR INABILITY TO USE <a href="WWW.URBANREFERRALNETWORK.COM"><u>WWW.URBANREFERRALNETWORK.COM</u></a> USER HEREBY ACKNOWLEDGES THAT THE PROVISIONS OF THIS SECTION SHALL APPLY TO ALL CONTENT ON THE SITE.<br>
+                                                            IN ADDITION TO THE TERMS SET FORTH ABOVE NEITHER, URBAN REFERRAL NETWROK, NOR ITS AFFILIATES, INFORMATION PROVIDERS OR CONTENT PARTNERS SHALL BE LIABLE REGARDLESS OR THE CAUSE OR DUARATION, FOR ANY ERRORS, INACCURACIES, OMISSINS, OR OTHER DEFECTS IN, OR UNTIMELINESS OR UNAUTHENTICITY OF, THE INFORMATION CONTAINED WITHIN <a href="WWW.URBANREFERRALNETWORK.COM"><u>WWW.URBANREFERRALNETWORK.COM</u></a>, OR FOR ANY DELAY OR INTERRUPTION IN THE TRANSMISSION  THEREOF TO THE USER, OR ANY CLAIMS OR LOSSES TO ANY NATURE, INCLUDING, BUT NOT LIMITED TO LOST PROFITS, PUNITIVE OR CONSEQUENTIAL DAMAGES.
+                                                        </p>
+                                                    </li>
+                                                    <li><p>	FORCE MAJEURE – NEITHER PARTY WILL BE RESPONSIBLE FOR ANY FAILURE OR DELAY IN PERFORMANCE DUE TO CIRCUMSTANCES BEYOND ITS REASONABLE CONTROL, INCLUDING, WITHOUT LIMITATION, ACTS OF GOD, WAR, RIOT, EMBARGOES, ACTS OF CIVIL OR MILITARY AUTHORITIES, FIRE, FLOODS, ACCIDENTS, SERVICE OUTAGES RESULTING FROM EQUIPMENT AND/OR SOFTWARE FAILURE AND/OR TELECOMMUNICATIONS FAILURES, POWER FAILURES, NETWORK FAILURES, FAILURES OF THIRD PARTY SERVICE PROVIDERS (INCLUDING PROVIDERS OF INTERNET SERVICES AND TELECOMMUNICATIONS). THE PARTY AFFECTED BY ANY SUCH EVENT SHALL NOTIFY THE OTHER PARTY WITHIN A MAXIMUM OF FIFTEEN (15) DAYS FROM ITS OCCURENCE. THE PERFORMANCE OF THS AGREEMENT SHALL THEN BE SUSPENDED FOR AS LONG AS ANY SUCH EVENT SHALL PREVENT THE AFFECTED PARTY FROM PERFORMING ITS OBLIGATIONS UNDER THIS AGREEMENT.</p> </li>
+
+                                                </ol>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">8.	MONITORING</h6>
+                                                <p> Urban Referral Network shall have the right, but not the obligation, to monitor the content of <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a>, to determine compliance with this Agreement and any operating rules established by Urban Referral Network and to satisfy any law, regulation or authorized government request. Urban Referral Network shall have the right in its sole discretion to edit, refuse to post or remove any material submitted to or posted on <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a>. Without limiting the foregoing, Urban Referral Network shall have the right to remove any material that Urban Referral Network, in its sole discretion, finds to be in violation of the provisions hereof or otherwise objectionable. </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">9.	INDEMNIFICATION</h6>
+                                                <p>User agrees to defend, indemnify and hold harmless Urban Referral Network, its affiliates and their respective directors, officers, employees and agents from and against all claims and expenses, including attorneys' fees, arising out of the use of Urban Referral Network by User.  </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">10.	TERMINATION</h6>
+                                                <p>Either Urban Referral Network or User may terminate this Agreement at any time. Without limiting the foregoing, Urban Referral Network shall have the right to immediately terminate User's Account in the event of any conduct by User which Urban Referral Network, in its sole discretion, considers to be unacceptable, or in the event of any breach by User of this Agreement.  </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">11.	MISCELLANEOUS</h6>
+                                                <p>This Agreement and any operating rules for <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> established by Urban Referral Network constitute the entire agreement of the parties with respect to the subject matter hereof, and supersede all previous written or oral agreements between the parties with respect to such subject matter. This Agreement shall be construed in accordance with the laws of the United States of America, without regard to its conflict of laws rules. No waiver by either party of any breach or default hereunder shall be deemed to be a waiver of any preceding or subsequent breach or default. The section headings used herein are for convenience only and shall not be given any legal import.  </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">12.	COPYRIGHT NOTICE </h6>
+                                                <p>Urban Referral Network its logo is the trademark of the Urban Referral Network, All rights reserved. All other trademarks appearing on Urban Referral Network are the property of their respective owners.  </p>
+                                            </li>
+
+                                            <li>
+                                                <h6 class="bold">13.	TRADEMARKS</h6>
+                                                <p>The names of actual companies and products mentioned herein may be the trademarks of their respective owners. The example companies, organizations, products, domain names, email addresses, logos, people and events depicted herein are fictitious. No association with any real company, organization, product, domain name, email address, logo, person, or event is intended or should be inferred.  </p>
+                                            </li>
+                                            <br>
+                                            <br>
+                                            <li><h6 class="bold">Any rights not expressly granted herein are reserved. </h6>
+                                        </ol>
+
+                                    </div><!--/#comments -->
+                                </article>
+                            </div><!-- /.post-content-single-wrap -->
+                        </div><!-- /.inner-content-wrap -->
+                    </div><!-- /#site-content -->
+
+
+                           
+
+
+
+
+
+                           
+
+                   
+                </div><!-- /#content-wrap -->
+            </div><!-- /#main-content -->
+
+
+            <!--footer section-6-->
+            <footer id="footer">
+                <div id="footer-widgets" class="container ~/style-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="widget widget_text">
+                                <h2 class="widget-title"><span>ABOUT US</span></h2>
+                                <div class="textwidget">
+                                    <img src="~/images/urban-logo-Copy.jpg" width="100" height="" alt="image" class="margin-top-5 margin-bottom-5">
+                                    <p>
+                                        The<span style="color:#ff9800;"> URBANetwork </span> founded in 1988 by a
+                                        coalition of block clubs and community
+                                        organizations to improve the quality of life
+                                        in urban communities, created the Urban
+                                        Referral Network in 2016 as a means to
+                                        improve the quality of services and goods
+                                        provided to urban consumers.
+                                    </p>
+                                    <div class="widget widget_links">
+
+                                        <ul class="wprt-links clearfix col2">
+                                            <li class="style-2"><a href="~/HTML/Terms" style="padding-right:15px;"> Terms & Condtions </a><a href="~/HTML/Privacy"> Privacy Policy </a></li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h2 class="widget-title"><span>COMPANY LINKS</span></h2>
+                                <ul class="wprt-links clearfix col2">
+                                    <li class="style-2"><a href="~/HTML/about_us"> Phone Consultation </a></li>
+                                    <li class="style-2"><a href="~/HTML/about_us"> Help Desk </a></li>
+                                    <li class="style-2"><a href="~/HTML/about_us"> Senior Care </a></li>
+                                </ul>
+
+                                <form class="form-group input-group" ~/style="margin-top: 20px;">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-btn">
+                                        <button class="btn" type="submit">Subscribe</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="widget widget_information">
+                                <h2 class="widget-title"><span>CONTACT INFO</span></h2>
+                                <ul class="style-2">
+                                    <li class="address clearfix">
+                                        <span class="hl">Address:</span>
+                                        <span class="text">
+                                            5349 Crenshaw Boulevard, Suite 101
+                                            Los Angeles, CA  90043
+                                        </span>
+                                    </li>
+                                    <li class="phone clearfix">
+                                        <span class="hl">Phone:</span>
+                                        <span class="text">+1 (323) 290-4089</span>
+                                    </li>
+                                    <li class="email clearfix">
+                                        <span class="hl">E-mail:</span>
+                                        <span class="text">contact@construction.com</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="widget widget_spacer">
+                                <div class="wprt-spacer clearfix" data-desktop="10" data-mobi="10" data-smobi="10" ~/style="height:10px"></div>
+                            </div>
+
+                            <div class="widget widget_socials">
+                                <div class="socials">
+                                    <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Bottom -->
+            <div id="bottom" class="clearfix ~/style-1">
+                <div id="bottom-bar-inner" class="wprt-container">
+                    <div class="bottom-bar-inner-wrap">
+
+                        <div class="bottom-bar-content">
+                            Copyright &copy; 2018 URBAN Network.
+
+                        </div><!-- /.bottom-bar-content -->
+
+                        <div class="bottom-bar-menu">
+                            Powered by YES IT Labs
+                        </div><!-- /.bottom-bar-menu -->
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div><!-- /#page -->
+    </div><!-- /#wrapper -->
+
+    <a id="scroll-top"></a>
+    <!-- BackToTop Button -->
+    <!-- Javascript -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/animsition.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/countTo.js"></script>
+    <script src="~/assets/js/fitText.js"></script>
+    <script src="~/assets/js/flexslider.js"></script>
+    <script src="~/assets/js/vegas.js"></script>
+    <script src="~/assets/js/cube.portfolio.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>
+

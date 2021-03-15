@@ -1,0 +1,135 @@
+﻿@model SO.Urba.Models.ValueObjects.CompanyVo
+@using SO.Urba.Managers
+@using SO.Urba.Models.ValueObjects
+
+@{
+    ViewBag.Title = "Add New Provider";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+<style>
+    .fillIn {
+        width: 95%;
+    }
+</style>
+<script>
+    window.onload = function () {
+        var n = @Html.Raw(Json.Encode(Model.companyCategories))
+                $("#companyCategories").val(n).select2({
+                    width: '100%',
+                });
+    };
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="">
+        <hr /><div class="span12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+       
+        <div class="row">
+            <div class="span3">
+                Company Name
+                @Html.EditorFor(model => model.companyName)
+            </div>
+            <div class="span2">
+                Contact Firt Name
+                @Html.TextBoxFor(model => model.contactInfo.firstName, new { style = "width:97%" })
+            </div>
+            <div class="span2">
+                Contact Last Name
+                @Html.TextBoxFor(model => model.contactInfo.lastName, new { style = "width:97%" })
+            </div>
+            <div class="span2">
+                Active         
+                <div>
+                    @Html.EditorFor(model => model.isActive)
+                </div>      
+            </div>
+        </div>
+        <div class="row">
+            <div class="span9">
+                Categories
+                @Html.Action("DropDownList", new { id = Model.companyCategories, propertyName = "companyCategories", modelType = typeof(CompanyCategoryTypeVo) })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                License
+                @Html.TextBoxFor(model => model.license, new { style = "width:98%" })
+            </div>
+            <div class="span2">
+                Agreement Signed
+                @Html.TextBoxFor(model => model.agreementSigned, new { style = "width:98%" })
+            </div>
+            <div class="span2">
+                Bonded
+                @Html.TextBoxFor(model => model.bonded, new { style = "width:98%" })
+            </div>
+            <div class="span3">
+                E-Mail
+                @Html.TextBoxFor(model => model.contactInfo.email, new { style = "width:95%" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                Address
+                @Html.EditorFor(model => model.contactInfo.address)
+            </div>
+            <div class="span3">
+                City
+                @Html.TextBoxFor(model => model.contactInfo.city, new { style = "width:97%" })
+            </div>
+            <div class="span1" title="State abbreviation must contain 2 characters.">
+                State
+                @Html.TextBoxFor(model => model.contactInfo.state, new { style = "width:50px" })
+            </div>
+            <div class="span2" title="Zip code should be in '99999' or '99999-1234' format.">
+                Zip
+                @Html.TextBoxFor(model => model.contactInfo.zip, new { style = "width:97%" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Fax
+                @Html.TextBoxFor(model => model.contactInfo.fax, new { style = "width:98%" })
+            </div>
+            <div class="span2">
+                Cell Phone
+                @Html.TextBoxFor(model => model.contactInfo.cell, new { style = "width:98%" })
+            </div>
+            <div class="span2">
+                Home Phone
+                @Html.TextBoxFor(model => model.contactInfo.homePhone, new { style = "width:98%" })
+            </div>
+            <div class="span3">
+                Work Phone
+                @Html.TextBoxFor(model => model.contactInfo.workPhone, new { style = "width:95%" })
+            </div>
+            <div class="span3">
+                Preferred Contact Method
+                @Html.EnumDropDownListFor(model => model.contactInfo.preferredContactMethod, new { @class = "input-small", disabled = "disabled" })
+            </div>
+        </div>
+
+    </div>
+    
+    <div  class="row">
+        <div class="span9">
+            <br />
+            <a href="@Url.Action("Index")" class="btn">Back to List</a>
+            <input type="submit" value="Create" class="btn pull-right btn-info" />
+        </div>
+    </div>   
+    
+}
+
+
+

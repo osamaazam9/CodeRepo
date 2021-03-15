@@ -1,0 +1,44 @@
+﻿@model SO.Urba.Models.ValueObjects.QuestionTypeVo
+
+@{
+    ViewBag.Title = "Add New Question";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+        <hr /><div class="span12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+       
+
+        <div class="row">
+            <div class="span9">
+                Question
+                @Html.TextBoxFor(model => model.questionText, new { style = "width:80%" })
+            </div>
+            <div class="span1">
+                Active
+                <div>
+                    @Html.EditorFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+    
+        <div  class="row">
+            <div class="span9">
+                <br />
+                <a href="@Url.Action("Index")" class="btn">Back to List</a>
+                <input type="submit" value="Create" class="btn pull-right btn-info" />
+            </div>
+        </div>    
+
+}
+

@@ -1,0 +1,30 @@
+﻿@model SO.Urba.Manager.Models.ViewModels.AllReferralsForaClientVM
+@{
+    String now3 = DateTime.Now.ToString("MM/dd/yyyy");
+    String lastYear3 = DateTime.Now.AddYears(-1).ToString("MM/dd/yyyy");
+}
+<div class="span12" style="color: red">
+    <br />
+    <b>
+        @Html.ValidationSummary()
+    </b>
+</div>
+
+<div id="AllReferralsForaClientForm" style="position:relative;">
+    <div id="allclients" class="form-control">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.DropDownListFor(m => m.clientId1, Model.allClientNames, "Please select a client")
+        <br /> <br />
+    </div>
+    <div>
+        <span>From:</span>
+        <input type="datetime" id="fDate3" name="fDate3" value="@lastYear3" class="form-control" style="width:75px;" />
+        @Html.ValidationMessageFor(m => m.fDate3, "", new { @class = "text-error" })
+        <br /> <br />
+    </div>
+    <div>
+        <span>To:</span>
+        <input type="datetime" id="tDate3" name="tDate3" value="@now3" class="form-control" style="width:75px; margin-left:20px;" />
+        @Html.ValidationMessageFor(m => m.tDate3, "", new { @class = "text-error" })
+    </div>
+</div>

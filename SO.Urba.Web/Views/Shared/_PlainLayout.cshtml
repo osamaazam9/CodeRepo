@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Urba</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Urba">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="~/Content/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        div.ui-datepicker {
+            font-size: 15px;
+        }
+    </style>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="~/Scripts/html5shiv.js"></script>
+    <![endif]-->
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+   
+    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("~/Scripts/bootstrap-datepicker.js")
+     
+    <link href="~/Scripts/select2-3.4.4/select2.css" rel="stylesheet" />
+    <script src="~/Scripts/select2-3.4.4/select2.min.js"></script>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var height = $("#mainContent").height();
+            $('#leftColumn').height(height);
+            // alert(height);
+
+            $("[id*='Date']").datepicker({
+                format: 'mm/dd/yyyy',
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true
+
+            });
+
+         
+            //Seyran: getting runtime(debug time) error on this:
+            // $(".select2").select2 undefined
+            $(".select2").select2(
+            {
+                dropdownAutoWidth: false,
+                width: 'element'
+            });
+        });
+
+       
+
+    </script>
+</head>
+
+<body style="background-color: white;">
+
+    <div class="container" style="background-color:white; width:90%;">
+
+
+        <!-- Example row of columns -->
+        <div class="row-fluid">
+             
+            <div class="span12">
+                 
+                @RenderBody()
+            </div>
+
+        </div>
+     </div>
+        @Scripts.Render("~/bundles/modernizr")
+
+        @Scripts.Render("~/Content/bootstrap/js/bootstrap.min.js")
+
+</body>
+</html>

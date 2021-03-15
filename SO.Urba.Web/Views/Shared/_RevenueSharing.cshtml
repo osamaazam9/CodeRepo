@@ -1,0 +1,39 @@
+﻿@model SO.Urba.Manager.Models.ViewModels.RevenueSharingVM
+    <div id="form">
+        @using (Ajax.BeginForm("RevenueSharing", "Organization", new AjaxOptions
+        {
+            HttpMethod = "POST",
+            UpdateTargetId = "form"
+        }))
+        {
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <label class="checkbox">
+                @Html.Label("Enter Organization Name")
+            </label>
+            @Html.DropDownListFor(m => m.orgName, Model.allorganizationNames, "Please select a organization")
+            <br />
+            @Html.ValidationMessageFor(m => m.orgName, "", new { @class = "text-error" })
+            <label class="checkbox">
+                @Html.Label("Enter Revenue Sharing Percentage Rate: (Example: 5 for 5%)")
+            </label>
+            <div>
+                @Html.TextBoxFor(m => m.rate, new { @class = "input-large", placeholder = "Enter Revenue Sharing Rate", Value = ""})
+            </div>
+            @Html.ValidationMessageFor(m => m.rate, "", new { @class = "text-error" })
+            <div style="margin-left:60px">
+                <input id="submit" type="submit" name="submit" value="Calculate" class="btn" />
+            </div>
+            <div id="revenue">
+                <label class="checkbox" style="display:inline-block;">
+                    @Html.Label("Total Revenue Sharing Amount:")
+                </label>
+                <label class="checkbox" style="display:inline-block;">
+                    @Html.Label(" $")
+                </label>
+                @Html.DisplayFor(m => m.totalGetBackAmount)
+                <div class="col-md-offset-2 col-md-12 text-error">
+                    @ViewBag.ErrorMessage
+                </div>
+            </div>
+        }
+    </div>

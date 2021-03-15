@@ -1,0 +1,20 @@
+﻿@model SO.Urba.Models.ViewModels.ClientSearchFilterVm
+<style>
+    #isActive {
+        width: 90px;
+    }
+</style>
+
+@Html.ValidationSummary(true)
+@Html.ValidationMessageFor(model => model.keyword)
+
+@Html.TextBoxFor(model => model.keywordMin, new { Class = "input-large", placeholder = "min fee amount" })
+@Html.TextBoxFor(model => model.keywordMax, new { Class = "input-large", placeholder = "max fee amount" })
+
+<label class="checkbox" style="margin-left:10px;">
+    @Html.LabelFor(model => model.isActive)
+    @Html.EditorFor(model => model.isActive)
+</label>
+
+<button id="btnSearch" name="submitButton" value="Search" class="btn">Search</button>
+

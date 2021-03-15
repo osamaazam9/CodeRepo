@@ -1,0 +1,6 @@
+﻿@model SO.Utility.Models.ViewModels.DropDownVm
+@{
+    Layout = null;
+}
+@Html.DropDownList(Model.propertyName, new SelectList(Model.items, Model.dataValueField, Model.dataTextField, Model.selectedValue), Model.optionLabel, new { onchange = "this.form.submit()" })
+

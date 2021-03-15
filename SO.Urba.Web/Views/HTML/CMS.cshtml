@@ -1,0 +1,815 @@
+﻿
+@{
+    ViewBag.Title = "CMS";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title> Urban Network </title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <!-- Favicon and touch icons  -->
+    <link rel="shortcut icon" href="~/assets/icon/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/icon/apple-touch-icon-158-precomposed.png">
+    <!--navigation bar link-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+</head>
+
+
+<body class="front-page no-sidebar site-layout-full-width header-style-5 menu-has-search menu-has-cart header-sticky">
+    <div class="row" style="background-color:lightgray">
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <label for="Select" style="padding: 15px">Select Page</label>
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownList("AllHeading", new List<SelectListItem>
+           { new SelectListItem { Text = "Home", Value = "1"},
+       new SelectListItem { Text = "About Us", Value = "2"},
+       new SelectListItem { Text = "Services", Value = "3"},
+        new SelectListItem { Text = "How it Work", Value = "4"},
+         new SelectListItem { Text = "FAQ", Value = "5"},
+          new SelectListItem { Text = "Contact Us", Value = "6"},
+           new SelectListItem { Text = "Blog", Value = "7"},
+             new SelectListItem { Text = "Blog1", Value = "8"},
+             new SelectListItem { Text = "Blog2", Value = "9"},
+              new SelectListItem { Text = "Blog3", Value = "10"},
+              new SelectListItem { Text = "Testimonials", Value = "11" }
+       }, "Select Heading", new { style = "background-color:#fff;margin-top: 9px;" })
+            </div>
+            <div class="col-md-2">
+                <button id="btnDiv" class="btn btn-default" style="margin-top: 9px;">Update Page</button>
+            </div>
+            <span style="margin-left:5%;">
+                <input type="button" value="Return To Home" class="btn btn-default" style="margin-top: 9px;" onclick="location.href='@Url.Action("Index", "Home")'" />
+            </span>
+        </div>
+    </div>
+
+    <script>
+       
+            function Changevalue() {
+                var test1 = $("#review1").html();
+                var test2 = $("#review2").html();
+                var test3 = $("#review3").html();
+                var test4 = $("#review4").html();
+                var test5 = $("#review5").html();
+                var test6 = $("#review6").html();
+                var test7 = $("#review7").html();
+                var test8 = $("#review8").html();
+                var test9 = $("#review9").html();
+                var test10 = $("#review10").html();
+
+                $("#block1").html('');
+                $("#block1").html(test1);
+                $("#block2").html('');
+                $("#block2").html(test2);
+                $("#block3").html('');
+                $("#block3").html(test3);
+                $("#block4").html('');
+                $("#block4").html(test4);
+                $("#block5").html('');
+                $("#block5").html(test5);
+                $("#block6").html('');
+                $("#block6").html(test6);
+                $("#block7").html('');
+                $("#block7").html(test7);
+                $("#block8").html('');
+                $("#block8").html(test8);
+                $("#block9").html('');
+                $("#block9").html(test9);
+                $("#block10").html('');
+                $("#block10").html(test10);
+
+                var reviewby1 = $("#divreviewby1").html();
+                var reviewby2 = $("#divreviewby2").html();
+                var reviewby3 = $("#divreviewby3").html();
+                var reviewby4 = $("#divreviewby4").html();
+                var reviewby5 = $("#divreviewby5").html();
+                var reviewby6 = $("#divreviewby6").html();
+                var reviewby7 = $("#divreviewby7").html();
+                var reviewby8 = $("#divreviewby8").html();
+                var reviewby9 = $("#divreviewby9").html();
+                var reviewby10 = $("#divreviewby10").html();
+
+                $("#reviewby1").html('');
+                $("#reviewby1").html(reviewby1);
+                $("#reviewby2").html('');
+                $("#reviewby2").html(reviewby2);
+                $("#reviewby3").html('');
+                $("#reviewby3").html(reviewby3);
+                $("#reviewby4").html('');
+                $("#reviewby4").html(reviewby4);
+                $("#reviewby5").html('');
+                $("#reviewby5").html(reviewby5);
+                $("#reviewby6").html('');
+                $("#reviewby6").html(reviewby6);
+                $("#reviewby7").html('');
+                $("#reviewby7").html(reviewby7);
+                $("#reviewby8").html('');
+                $("#reviewby8").html(reviewby8);
+                $("#reviewby9").html('');
+                $("#reviewby9").html(reviewby9);
+                $("#reviewby10").html('');
+                $("#reviewby10").html(reviewby10);
+            }
+    </script>
+
+
+    <div id="wrapper" class="animsition" name="alltext"></div>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $('#btnDiv').click(function () {
+
+                var drpvalue = $("#AllHeading").val();
+                //    alert(drpvalue);
+                var value = "";
+                var value1 = "";
+                var value2 = "";
+                var value3 = "";
+                var value4 = "";
+                var value5 = "";
+                var value6 = "";
+                var value7 = "";
+
+                if (drpvalue == "1") {
+                    value = $('#hero-section').html();
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    value7 = $('#section7').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveRecord", "HTML")",
+                        data: { "text": "" + value + "", "text4": "" + value4 + "", "text5": "" + value5 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertHtml(value1, "1", response);
+                            InsertHtml(value2, "2", response);
+                            InsertHtml(value3, "3", response);
+                            InsertHtml(value6, "4", response);
+                            InsertHtml(value7, "5", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+                if (drpvalue == "2") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    value7 = $('#section7').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveAboutUs", "HTML")",
+                        data: { "text": "" + value1 + "", "text4": "" + value3 + "", "text5": "" + value4 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertAboutUsHtml(value2, "1", response);
+                            InsertAboutUsHtml(value5, "2", response);
+                            InsertAboutUsHtml(value6, "3", response);
+                            InsertAboutUsHtml(value7, "4", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+
+                if (drpvalue == "3") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    value7 = $('#section7').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveService", "HTML")",
+                        data: { "text": "" + value1 + "", "text4": "" + value3 + "", "text5": "" + value4 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertServiceHtml(value2, "1", response);
+                            InsertServiceHtml(value5, "2", response);
+                            InsertServiceHtml(value6, "3", response);
+                            InsertServiceHtml(value7, "4", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+
+                if (drpvalue == "4") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    value7 = $('#section7').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveHowToWork", "HTML")",
+                        data: { "text": "" + value1 + "", "text4": "" + value3 + "", "text5": "" + value4 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertHowToWorkHtml(value2, "1", response);
+                            InsertHowToWorkHtml(value5, "2", response);
+                            InsertHowToWorkHtml(value6, "3", response);
+                            InsertHowToWorkHtml(value7, "4", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+                if (drpvalue == "5") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    //  value4 = $('#section4').html();
+                    //  value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    value7 = $('#section7').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveFAQ", "HTML")",
+                        data: { "text": "" + value1 + "", "text4": "" + value2 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertFAQHtml(value3, "1", response);
+                            //    InsertHowToWorkHtml(value5, "2", response);
+                            InsertFAQHtml(value6, "2", response);
+                            InsertFAQHtml(value7, "3", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+                if (drpvalue == "6") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    //  value4 = $('#section4').html();
+                    //  value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    value7 = $('#section7').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveContactUs", "HTML")",
+                        data: { "text": "" + value1 + "", "text4": "" + value2 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertContactUsHtml(value3, "1", response);
+                            //    InsertHowToWorkHtml(value5, "2", response);
+                            InsertContactUsHtml(value6, "2", response);
+                            InsertContactUsHtml(value7, "3", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+                if (drpvalue == "7") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    value7 = $('#section7').html();
+                    value8 = $('#section8').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveBlog", "HTML")",
+                        data: { "text": "" + value1 + "", "text1": "" + value2 + "", "text2": "" + value3 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertBlogHtml(value4, "1", response);
+                            InsertBlogHtml(value5, "2", response);
+                            InsertBlogHtml(value6, "3", response);
+                            InsertBlogHtml(value7, "4", response);
+                            InsertBlogHtml(value8, "5", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+
+                if (drpvalue == "8") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    //value7 = $('#section7').html();
+                    //value8 = $('#section8').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveBlog1", "HTML")",
+                        data: { "text": "" + value1 + "", "text1": "" + value2 + "", "text2": "" + value3 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertBlog1Html(value4, "1", response);
+                            InsertBlog1Html(value5, "2", response);
+                            InsertBlog1Html(value6, "3", response);
+                            //InsertBlogHtml(value7, "4", response);
+                            //InsertBlogHtml(value8, "5", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+
+                if (drpvalue == "9") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    //value7 = $('#section7').html();
+                    //value8 = $('#section8').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveBlog2", "HTML")",
+                        data: { "text": "" + value1 + "", "text1": "" + value2 + "", "text2": "" + value3 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertBlog2Html(value4, "1", response);
+                            InsertBlog2Html(value5, "2", response);
+                            InsertBlog2Html(value6, "3", response);
+                            //InsertBlogHtml(value7, "4", response);
+                            //InsertBlogHtml(value8, "5", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+
+                if (drpvalue == "10") {
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    //value7 = $('#section7').html();
+                    //value8 = $('#section8').html();
+
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveBlog3", "HTML")",
+                        data: { "text": "" + value1 + "", "text1": "" + value2 + "", "text2": "" + value3 + "" },
+                        dataType: "html",
+                        success: function (response) {
+                            var text1 = response;
+                            InsertBlog3Html(value4, "1", response);
+                            InsertBlog3Html(value5, "2", response);
+                            InsertBlog3Html(value6, "3", response);
+                            //InsertBlogHtml(value7, "4", response);
+                            //InsertBlogHtml(value8, "5", response);
+                            $("#myModal").modal();
+                        },
+                        failure: function (response) {
+                            alert(response.responseText);
+                        },
+                        error: function (response) {
+                            alert(response.responseText);
+                        }
+                    });
+                }
+
+
+                if (drpvalue == "11") {
+                    Changevalue();
+
+                    value1 = $('#section1').html();
+                    value2 = $('#section2').html();
+                    value3 = $('#section3').html();
+                    value4 = $('#section4').html();
+                    value5 = $('#section5').html();
+                    value6 = $('#section6').html();
+                    value7 = $('#section7').html();
+                    $.ajax({
+                        type: "Post",
+                        url: "@Url.Action("SaveTestimonials", "HTML")",
+                        data: { "text": "" + value1 + "", "text1": "" + value2 + "", "text2": "" + value3 + "" },
+                    dataType: "html",
+                    success: function (response) {
+                        var text1 = response;
+                        InsertTestimonials(value4, "1", response);
+                        InsertTestimonials(value5, "2", response);
+                        InsertTestimonials(value6, "3", response);
+                        InsertTestimonials(value7, "4", response);
+                       
+                        $("#myModal").modal();
+                    },
+                    failure: function (response) {
+                        alert(response.responseText);
+                    },
+                    error: function (response) {
+                        alert(response.responseText);
+                    }
+                });
+            }
+
+
+
+            });
+        });
+
+        function InsertTestimonials(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateTestimonialsRecord", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+            dataType: "html",
+            success: function (response) {
+            },
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+        }
+
+
+
+        function InsertBlog3Html(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateBlog3Record", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+        function InsertBlog2Html(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateBlog2Record", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+        function InsertBlog1Html(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateBlog1Record", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+
+        function InsertBlogHtml(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateBlogRecord", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+        function InsertContactUsHtml(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateContactUsRecord", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+        function InsertFAQHtml(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateFAQRecord", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+        function InsertHowToWorkHtml(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateHowToWorkRecord", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+        function InsertServiceHtml(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateServiceRecord", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+        function InsertAboutUsHtml(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateAboutUsRecord", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+        function InsertHtml(htmlstring, val, test) {
+            //  alert(test);
+            $.ajax({
+                type: "Post",
+                url: "@Url.Action("UpdateRecord", "HTML")",
+                data: { "text": "" + htmlstring + "", "val": "" + val + "", "text1": "" + JSON.parse(test) + "" },
+                dataType: "html",
+                success: function (response) {
+
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        }
+
+
+    </script>
+
+    @*@Html.ActionLink("Save","SaveRecord","HTML",new {@class="btn btn-danger" })*@
+
+
+    <a id="scroll-top"></a>
+    <!-- Javascript -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/animsition.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/countTo.js"></script>
+    <script src="~/assets/js/fitText.js"></script>
+    <script src="~/assets/js/flexslider.js"></script>
+    <script src="~/assets/js/vegas.js"></script>
+    <script src="~/assets/js/cube.portfolio.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    <script>
+        $("#AllHeading").on("change", function () {
+            var drpvalue = $(this).val();
+
+            $.ajax({
+                type: "Get",
+                url: "@Url.Action("GetWords", "HTML")",
+                data: { "selectedItem": "" + drpvalue + "" },
+                contentType: "application/json; charset=utf-8",
+                dataType: "html",
+                success: function (response) {
+                    $('#wrapper').html(response);
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                }
+            });
+        })
+    </script>
+
+
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="display:none"> Modal</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Message</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Page Updated Successfully.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

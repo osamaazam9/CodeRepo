@@ -1,0 +1,18 @@
+﻿@model SO.Utility.Models.ViewModels.SearchFilterVm
+
+@Html.ValidationSummary(true)
+@Html.ValidationMessageFor(model => model.keyword)
+
+@Html.TextBoxFor(model => model.keyword, new { Class = "input-large", placeholder = "Search" })
+
+<label class="checkbox" style="margin-left:10px;">
+    @Html.LabelFor(model => model.searchField)
+    @Html.EnumDropDownListFor(model => model.searchField, new { Class = "input-medium" })
+</label>
+
+<label class="checkbox" style="margin-left:10px;">
+    @Html.LabelFor(model => model.isActive)
+    @Html.EditorFor(model => model.isActive, new { htmlAttributes = new { @class = "input-small" } })
+</label>
+
+<button id="btnSearch" name="submitButton" value="Search" class="btn">Search</button>

@@ -1,0 +1,64 @@
+﻿@model List<object>
+@using SO.Urba.Models.ValueObjects
+@using SO.Utility.Extensions;
+@{
+        
+    ViewBag.Title = "_List";
+    
+    var result = Model.convertTo<ContactInfoVo>();
+
+}
+
+ 
+
+<table class="table"  >
+    <tr>
+        <th>
+          First Name
+        </th>
+        <th>
+          Last Name
+        </th>
+        <th>
+         Address
+        </th>
+        <th>
+          City
+        </th>
+        <th>
+          Cell Phone
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in result)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cell)
+        </td>
+     
+        <td>
+        <td style="width:150px;">
+            <a href="@Url.Action("Edit", new { id = item.contactInfoId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Details", new { id = item.contactInfoId })" class="btn" title="Details"><i class="icon-list"></i></a>
+            <a href="@Url.Action("Delete", new { id = item.contactInfoId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+ 
+        </td>
+    </tr>
+}
+
+</table>

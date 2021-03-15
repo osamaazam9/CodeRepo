@@ -1,0 +1,115 @@
+﻿@model SO.Urba.Models.ValueObjects.MemberVo
+@using SO.Urba.Managers
+
+@{
+    ViewBag.Title = "User Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+<style>
+    .fillIn {
+        width: 95%;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="row">
+            <div class="span3">
+                Member ID
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.memberId)" readonly="true">
+            </div>
+            <div class="span3">
+                User Name
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.username)" readonly="true">
+            </div>
+            <div class="span3">
+                Full Name
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.fullname)" readonly="true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span9">
+                Roles
+                @{
+                    string roles = "";
+
+                    foreach (var role in Model.memberRoleLookupses)
+                    {
+                        roles += role.memberRoleType.name;
+                        roles += ", ";
+                    }
+
+                    if (roles.Length > 2)
+                    {
+                        roles = roles.Substring(0, roles.Length - 2);
+                    }
+                }
+                <input type="text" class="form-control" style="width:98%" value="@roles" readonly="true">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                E-Mail
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.email)" readonly="true">
+            </div>
+            <div class="span6">
+                Address
+                <input type="text" class="form-control" style="width:97%" value="@Model.contactInfo.fullAddress" readonly="true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Fax
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.fax)" readonly="true">
+            </div>
+            <div class="span2">
+                Cell Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.cell)" readonly="true">
+            </div>
+            <div class="span2">
+                Home Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.homePhone)" readonly="true">
+            </div>
+            <div class="span3">
+                Work Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.workPhone)" readonly="true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                Created Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.created)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.modified)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified By
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.modifiedBy)" readonly="true">
+            </div>
+        </div>
+    </div>
+                    }
+
+<div style="width:90%">
+    @if (Model.memberId == CurrentMember.member.memberId)
+    {
+        <a href="@Url.Action("EditProfile")" class="btn btn-info pull-right">Edit</a>
+    }
+    else
+    {
+        <a href="@Url.Action("Edit", new { id = Model.memberId })" class="btn btn-info pull-right">Edit</a>
+    }
+
+</div>

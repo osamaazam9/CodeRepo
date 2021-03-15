@@ -1,0 +1,439 @@
+﻿@model HomePageContent
+@{
+    ViewBag.Title = "FAQ";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+
+    <title> Urban Network </title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Theme ~/style -->
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <!-- Favicon and touch icons  -->
+    <link rel="shortcut icon" href="~/assets/icon/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/icon/apple-touch-icon-158-precomposed.png">
+    <!--navigation bar link-->
+    <style>
+        .comment-author { display:block;
+            font-weight: 600;
+        }
+         #comments p {
+            font-style: italic;
+        }
+
+    </style>
+
+
+</head>
+
+<body class="header-style-1 menu-has-search menu-has-cart">
+    <!--navbar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="" href="#"><img src="~/images/logo.png" class="img-responsive" alt="logo" /></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div class="collapse navbar-collapse" id="myNavbar">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="nav navbar-nav navbar-right social-icon">
+                                    <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-youtube"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+
+
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="nav navbar-nav navbar-right menu-margin">
+                                    <li><a href="~/HTML/index">HOME</a></li>
+                                    <li><a href="~/HTML/our_services">SERVICES</a></li>
+                                    <li><a href="~/HTML/about_us">ABOUT US</a></li>
+                                    <li><a href="~/HTML/how_it_work">HOW IT WORKS</a></li>
+                                    <li><a href="~/HTML/blog">BLOG</a></li>
+                                    <li><a href="~/HTML/FAQ">FAQ</a></li>
+                                    <li><a href="~/HTML/Testimonials">TESTIMONIALS</a></li>
+                                    <li><a href="~/HTML/contact_us" style="border:0;padding-right:0;">CONTACT US</a></li>
+                                    <li><button class="btn" onclick="location.href='@Url.Action("Login","Account",  new { target="_blank" })'"><span class="fa fa-user-circle-o">&nbsp;&nbsp; </span>LOGIN / REGISTER</button></li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper" class="animsition">
+        <div id="page" class="clearfix">
+            <!--about banner section-1-->
+            <div id="section1">
+                @if (Model != null && Model.Section1 != null)
+                {
+                    @Html.Raw(Model.Section1)
+                }
+                else
+                {
+                    <div class="text-center banner-back smallbanner">
+                        <h1 class="bold" contenteditable="true"> FAQ </h1>
+                    </div>
+                }
+            </div>
+
+            <!-- Main Content -->
+            <div id="main-content" class="site-main clearfix">
+                <div id="content-wrap" class="container">
+                    <div class="row">
+                        <div id="inner-content" class="inner-content-wrap">
+                            <div class="post-content-single-wrap">
+                                <article>
+                                    <div id="comments" class="comments-area">
+                                        <div id="section2">
+                                            @if (Model != null && Model.Section2 != null)
+                                            {
+                                                @Html.Raw(Model.Section2)
+                                            }
+                                            else
+                                            {
+                                                <h2 class="comments-title" contenteditable="true">	FAQ </h2>
+                                            }
+                                        </div>
+
+                                        <div id="section3">
+                                            @if (Model != null && Model.Section3 != null)
+                                            {
+                                                @Html.Raw(Model.Section3)
+                                            }
+                                            else
+                                            {
+                                                <ol class="comment-list">
+
+                                                    <li class="comment">
+                                                        <article class="comment-wrap clearfix">
+                                                            <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                            <div class="comment-content">
+                                                                <div class="comment-meta">
+                                                                    <h6 class="comment-author" contenteditable="true">What does the Urban Referral Network Program cover?</h6>
+                                                                </div>
+                                                                <div class="comment-text" contenteditable="true">
+                                                                    <p>Members of the Urban Referral Network program will get exclusive access to a database of the best skilled service providers within their local community.</p>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <ul class="children">
+                                                            <li class="comment">
+                                                                <article class="comment-wrap clearfix">
+                                                                    <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                                    <div class="comment-content">
+                                                                        <div class="comment-meta">
+                                                                            <h6 class="comment-author" contenteditable="true">How qualified are the service providers?</h6>
+                                                                        </div>
+                                                                        <div class="comment-text" contenteditable="true">
+                                                                            <p>ALL Urban Referral Network service providers are highly qualified for the job. Many of them are licensed tradespeople while the few unlicensed but qualified ones are classified as ‘handymen’.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </li><!-- #comment-## -->
+                                                        </ul><!-- .children -->
+                                                    </li><!-- #comment-## -->
+
+                                                    <li class="comment">
+                                                        <article class="comment-wrap clearfix">
+                                                            <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                            <div class="comment-content">
+                                                                <div class="comment-meta">
+                                                                    <h6 class="comment-author" contenteditable="true">How much do I have to pay every time I need to hire someone off Urban Referral Network database?</h6>
+                                                                </div>
+                                                                <div class="comment-text" contenteditable="true">
+                                                                    <p>Every time you hire from Urban Referral Network, you do so for free. Payments are made ONLY for membership and these payments are done once annually. However, membership is free for the first two years.	</p>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <ul class="children">
+                                                            <li class="comment">
+                                                                <article class="comment-wrap clearfix">
+                                                                    <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                                    <div class="comment-content">
+                                                                        <div class="comment-meta">
+                                                                            <h6 class="comment-author" contenteditable="true">What is the annual membership fee for a Sponsoring Organization?</h6>
+                                                                        </div>
+                                                                        <div class="comment-text" contenteditable="true">
+                                                                            <p>Membership for the first two years is free. A small membership fee will be assessed after the initial two year membership.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </li><!-- #comment-## -->
+                                                        </ul><!-- .children -->
+                                                    </li><!-- #comment-## -->
+
+                                                    <li class="comment">
+                                                        <article class="comment-wrap clearfix">
+                                                            <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                            <div class="comment-content">
+                                                                <div class="comment-meta">
+                                                                    <h6 class="comment-author" contenteditable="true">What are the advantages of participating in the Urban Living Program?</h6>
+                                                                </div>
+                                                                <div class="comment-text" contenteditable="true">
+                                                                    <p>If your businesses participant the Urban Living program, you will enjoy significant access to an urban consumer market eager to patronize local establishments providing quality goods and services.</p>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <ul class="children">
+                                                            <li class="comment">
+                                                                <article class="comment-wrap clearfix">
+                                                                    <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                                    <div class="comment-content">
+                                                                        <div class="comment-meta">
+                                                                            <h6 class="comment-author" contenteditable="true">Can I still participate without being a member of a Community Organization?</h6>
+                                                                        </div>
+                                                                        <div class="comment-text" contenteditable="true">
+                                                                            <p>Yes, you can. Please contact us to get the necessary information and updates.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </li><!-- #comment-## -->
+                                                        </ul><!-- .children -->
+                                                    </li><!-- #comment-## -->
+
+                                                    <li class="comment">
+                                                        <article class="comment-wrap clearfix">
+                                                            <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                            <div class="comment-content">
+                                                                <div class="comment-meta">
+                                                                    <h6 class="comment-author" contenteditable="true">How can I be assured that the Urban Referral Network's participating businesses are reputable?</h6>
+                                                                </div>
+                                                                <div class="comment-text" contenteditable="true">
+                                                                    <p>We carry out a thorough background checks on ALL participating businesses for competitive and fair prices; quality of goods and services provided; customer service and for appropriate licenses, insurance etc. We will not indorse any businesses unless we have determined that the businesses/tradesperson is qualified and equipped to provide nothing less than the best in the quality of goods and services for our members.</p>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <ul class="children">
+                                                            <li class="comment">
+                                                                <article class="comment-wrap clearfix">
+                                                                    <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                                    <div class="comment-content">
+                                                                        <div class="comment-meta">
+                                                                            <h6 class="comment-author" contenteditable="true">How do I join a member Community Organization?</h6>
+                                                                        </div>
+                                                                        <div class="comment-text" contenteditable="true">
+                                                                            <p>URN partners consists of all types of organizations, they range from civic groups to churches, block clubs and sororities. If you cannot find one within your immediate environment, please contact us.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </li><!-- #comment-## -->
+                                                        </ul><!-- .children -->
+                                                    </li><!-- #comment-## -->
+
+                                                    <li class="comment">
+                                                        <article class="comment-wrap clearfix">
+                                                            <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                            <div class="comment-content">
+                                                                <div class="comment-meta">
+                                                                    <h6 class="comment-author" contenteditable="true">What advantages will I enjoy as a business owner?</h6>
+                                                                </div>
+                                                                <div class="comment-text" contenteditable="true">
+                                                                    <p>Participating businesses will enjoy higher customer patronage, higher returns and also take advantage of the goodwill that comes with the Urban Referral Network brand.</p>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <ul class="children">
+                                                            <li class="comment">
+                                                                <article class="comment-wrap clearfix">
+                                                                    <div class="gravatar"><img alt="image" src="~/assets/img/avatar.png" /></div>
+                                                                    <div class="comment-content">
+                                                                        <div class="comment-meta">
+                                                                            <h6 class="comment-author" contenteditable="true">What advantages will I enjoy as an Urban Referral Network tradesperson?</h6>
+                                                                        </div>
+                                                                        <div class="comment-text" contenteditable="true">
+                                                                            <p>Being an accredited Urban Referral Network tradesperson means you get more exposure for your services, especially within your immediate community. Your financial earning will also increase and our "Quality Assurance" will let you enjoy the extra goodwill that comes with the Urban Referral Network brand.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </article>
+                                                            </li><!-- #comment-## -->
+                                                        </ul><!-- .children -->
+                                                    </li><!-- #comment-## -->
+
+                                                </ol><!-- /.comment-list -->
+                                            }
+                                        </div>
+                                    </div><!--/#comments -->
+                                </article>
+                            </div><!-- /.post-content-single-wrap -->
+                        </div><!-- /.inner-content-wrap -->
+                    </div><!-- /#site-content -->
+                </div><!-- /#content-wrap -->
+            </div><!-- /#main-content -->
+            <!--footer section-6-->
+            <!--footer section-6-->
+            <div id="section6">
+                @if (Model != null && Model.FooterSection1 != null)
+                {
+                    @Html.Raw(Model.FooterSection1)
+                }
+                else
+                {
+                    <footer id="footer">
+                        <div id="footer-widgets" class="container style-1">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="widget widget_text">
+                                        <h2 class="widget-title" contenteditable="true"><span>ABOUT US</span></h2>
+                                        <div class="textwidget">
+                                            <img src="~/images/urban-logo-Copy.jpg" width="100" height="" alt="image" class="margin-top-5 margin-bottom-5">
+                                            <p contenteditable="true">
+                                                The<span style="color:#ff9800;"> URBANetwork </span> founded in 1988 by a
+                                                coalition of block clubs and community
+                                                organizations to improve the quality of life
+                                                in urban communities, created the Urban
+                                                Referral Network in 2016 as a means to
+                                                improve the quality of services and goods
+                                                provided to urban consumers.
+                                            </p>
+                                            <div class="widget widget_links">
+
+                                                <ul class="wprt-links clearfix col2" contenteditable="true">
+                                                    <li class="style-2"><a href="~/HTML/Terms" style="padding-right:15px;"> Terms & Condtions </a><a href="~/HTML/Privacy"> Privacy Policy </a></li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="widget widget_links">
+                                        <h2 class="widget-title" contenteditable="true"><span>COMPANY LINKS</span></h2>
+                                        <ul class="wprt-links clearfix col2" contenteditable="true">
+                                            <li class="style-2"><a href="~/HTML/about_us"> Phone Consultation </a></li>
+                                            <li class="style-2"><a href="~/HTML/about_us"> Help Desk </a></li>
+                                            <li class="style-2"><a href="~/HTML/about_us"> Senior Care </a></li>
+                                        </ul>
+
+                                        <form class="form-group input-group" style="margin-top: 20px;">
+                                            <input type="text" class="form-control">
+                                            <div class="input-group-btn">
+                                                <button class="btn" type="submit">Subscribe</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="widget widget_information">
+                                        <h2 class="widget-title" contenteditable="true"><span>CONTACT INFO</span></h2>
+                                        <ul class="style-2" contenteditable="true">
+                                            <li class="address clearfix">
+                                                <span class="hl">Address:</span>
+                                                <span class="text">
+                                                    5349 Crenshaw Boulevard, Suite 101,
+                                                    Los Angeles, CA  90043
+                                                </span>
+                                            </li>
+                                            <li class="phone clearfix">
+                                                <span class="hl">Phone:</span>
+                                                <span class="text">+1 (323) 290-4089</span>
+                                            </li>
+                                            <li class="email clearfix">
+                                                <span class="hl">E-mail:</span>
+                                                <span class="text">contact@construction.com</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="widget widget_spacer">
+                                        <div class="wprt-spacer clearfix" data-desktop="10" data-mobi="10" data-smobi="10" style="height:10px"></div>
+                                    </div>
+                                    <div class="widget widget_socials">
+                                        <div class="socials">
+                                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                            <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                            <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                                            <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                }
+            </div>
+            <!-- Bottom -->
+            <div id="section7">
+                @if (Model != null && Model.FooterSection2 != null)
+                {
+                    @Html.Raw(Model.FooterSection2)
+                }
+                else
+                {
+                    <div id="bottom" class="clearfix style-1">
+                        <div id="bottom-bar-inner" class="wprt-container">
+                            <div class="bottom-bar-inner-wrap">
+
+                                <div class="bottom-bar-content" contenteditable="true">
+                                    Copyright &copy; 2018 URBAN Network.
+                                    <!-- /#copyright -->
+                                </div><!-- /.bottom-bar-content -->
+                                <div class="bottom-bar-menu" contenteditable="true">
+                                    Powered by YES IT Labs
+                                </div><!-- /.bottom-bar-menu -->
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- End copyright -->
+        </div><!-- /#page -->
+    </div><!-- /#wrapper -->
+
+    <a id="scroll-top"></a>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="~/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/animsition.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins.js"></script>
+    <script type="text/javascript" src="~/assets/js/countTo.js"></script>
+    <script type="text/javascript" src="~/assets/js/flexslider.js"></script>
+    <script type="text/javascript" src="~/assets/js/cube.portfolio.js"></script>
+    <script type="text/javascript" src="~/assets/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div[contenteditable="true"]').attr('contenteditable', false);
+            $('p[contenteditable="true"]').attr('contenteditable', false);
+            $('h1[contenteditable="true"]').attr('contenteditable', false);
+            $('h2[contenteditable="true"]').attr('contenteditable', false);
+            $('h3[contenteditable="true"]').attr('contenteditable', false);
+            $('ul[contenteditable="true"]').attr('contenteditable', false);
+            $('li[contenteditable="true"]').attr('contenteditable', false);//blockquote          
+            $('h4[contenteditable="true"]').attr('contenteditable', false);
+            $('h6[contenteditable="true"]').attr('contenteditable', false);
+            $('a[contenteditable="true"]').attr('contenteditable', false);
+        });
+
+    </script>
+</body>
+</html>

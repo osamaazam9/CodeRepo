@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SO.Urba.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{90ede18a-9022-439e-b83d-2f2a8650d8b5}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SO.Urba.Database</RootNamespace>
+    <AssemblyName>SO.Urba.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- VS10 without SP1 will not have VisualStudioVersion set, so do that here -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Default to the v10.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="app" />
+    <Folder Include="data" />
+    <Folder Include="app\Tables" />
+    <Folder Include="data\Tables" />
+    <Folder Include="SqlScripts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\NT AUTHORITY_NETWORK SERVICE.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="dbo\Stored Procedures\SetUserPassword.sql" />
+    <Build Include="dbo\Stored Procedures\Report_MembersByOrganization.sql" />
+    <Build Include="dbo\Stored Procedures\Report_MemberReferralsByDate.sql" />
+    <Build Include="dbo\Stored Procedures\Report_ContractorReferralsByDate.sql" />
+    <Build Include="dbo\Stored Procedures\Report_ContractorCategorySatisfactionByDate.sql" />
+    <Build Include="dbo\Stored Procedures\Report_ContractorCategoryReferralsByDate.sql" />
+    <Build Include="dbo\Stored Procedures\RenameMemberCategory.sql" />
+    <Build Include="dbo\Stored Procedures\GetUsers.sql" />
+    <Build Include="dbo\Stored Procedures\GetReferralSurveyAnswers.sql" />
+    <Build Include="dbo\Stored Procedures\GetReferralsOfMember.sql" />
+    <Build Include="dbo\Stored Procedures\GetRandomPassword.sql" />
+    <Build Include="dbo\Stored Procedures\GetQuestionsList.sql" />
+    <Build Include="dbo\Stored Procedures\GetMembersOfCategory.sql" />
+    <Build Include="dbo\Stored Procedures\GetMemberCategoryByID.sql" />
+    <Build Include="dbo\Stored Procedures\GetMemberCategories.sql" />
+    <Build Include="dbo\Stored Procedures\GetMemberByID.sql" />
+    <Build Include="dbo\Stored Procedures\GetContractorsOfCategory.sql" />
+    <Build Include="dbo\Stored Procedures\GetContractorCategories.sql" />
+    <Build Include="dbo\Stored Procedures\GetContractorByID.sql" />
+    <Build Include="dbo\Stored Procedures\FindMembers.sql" />
+    <Build Include="dbo\Stored Procedures\FindContractors.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteReferral.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteMemberCategory.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteMember.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteContractorCategory.sql" />
+    <Build Include="dbo\Stored Procedures\AuthenticateAndGetUser.sql" />
+    <Build Include="dbo\Stored Procedures\AssignContractorToCategories.sql" />
+    <Build Include="dbo\Stored Procedures\AnswerReferralSurvey.sql" />
+    <Build Include="dbo\Stored Procedures\AddTripleReferral.sql" />
+    <Build Include="dbo\Stored Procedures\AddNewOrUpdateUser.sql" />
+    <Build Include="dbo\Stored Procedures\AddNewOrUpdateReferral.sql" />
+    <Build Include="dbo\Stored Procedures\AddNewOrUpdateMemberCategory.sql" />
+    <Build Include="dbo\Stored Procedures\AddNewOrUpdateMember.sql" />
+    <Build Include="dbo\Stored Procedures\AddNewOrUpdateContractorCategory.sql" />
+    <Build Include="dbo\Stored Procedures\AddNewOrUpdateContractor.sql" />
+    <Build Include="dbo\Stored Procedures\AddNewOrUpdateContactInfo.sql" />
+    <Build Include="Security\data.sql" />
+    <Build Include="Security\app.sql" />
+    <Build Include="data\Tables\Member.sql" />
+    <Build Include="data\Tables\Company.sql" />
+    <Build Include="data\Tables\CompanyCategoryLookup.sql" />
+    <Build Include="data\Tables\ContactInfo.sql" />
+    <Build Include="app\Tables\CompanyCategoryType.sql" />
+    <Build Include="app\Tables\MemberRoleType.sql" />
+    <Build Include="app\Tables\QuestionType.sql" />
+    <Build Include="data\Tables\MemberRoleLookup.sql" />
+    <Build Include="data\Tables\Referral.sql" />
+    <Build Include="data\Tables\SurveyAnswer.sql" />
+    <Build Include="data\Tables\Organization.sql" />
+    <Build Include="data\Tables\ClientOrganizationLookup.sql" />
+    <Build Include="data\Tables\Client.sql" />
+    <None Include="SqlScripts\DataGenerate.sql" />
+    <None Include="SqlScripts\getAllOfGivenCategory.UrbaWeb.sql" />
+    <None Include="SqlScripts\InitialDataGenerate.sql" />
+    <None Include="SqlScripts\CreateDefaultAdminUser.sql" />
+  </ItemGroup>
+</Project>

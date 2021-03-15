@@ -1,0 +1,82 @@
+﻿@model SO.Urba.Models.ViewModels.SurveyAnswerVm
+@using SO.Urba.Managers
+@using SO.Urba.Models.ValueObjects
+
+@{
+    ViewBag.Title = "Survey Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem { Text = "N/A", Value = "" });
+    list.Add(new SelectListItem { Text = "Poor", Value = "1" });
+    list.Add(new SelectListItem { Text = "Fair", Value = "2" });
+    list.Add(new SelectListItem { Text = "Good", Value = "3" });
+    list.Add(new SelectListItem { Text = "Very Good", Value = "4" });
+    list.Add(new SelectListItem { Text = "Excellent", Value = "5" });
+    string[] answers = { "N/A", "Poor", "Fair", "Good", "Very Good", "Excellent" };
+    QuestionTypeManager QTM = new QuestionTypeManager();
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="">
+        <hr /><div class="span12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+
+        <div class="row">
+            <div class="span6">
+                Question
+            </div>
+            <div class="span3">
+                Answer
+            </div>
+        </div>
+        <hr />
+
+        @for (var i = 0; i < Model.voSlist.Count; i++)
+        {
+            @Html.HiddenFor(model => model.voSlist[i].questionTypeId)
+            @Html.HiddenFor(model => model.voSlist[i].referralId)
+            <div class="row">
+                <div class="span6">
+
+                    <span> @QTM.get(Model.voSlist[i].questionTypeId).questionText</span>
+                </div>
+                <div class="span3">
+                    <input type="text" class="form-control" value="@answers[Model.voSlist[i].answer ?? 0]" readonly="true">
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="span9">
+                Comment
+                <textarea rows="4" style="width:98%" class="form-control" readonly="true">@Model.comment</textarea>
+            </div>
+        </div>
+
+    </div>
+    <br />
+    <div  class="row">
+        <div class="span9">
+            <a href="@ViewBag.returnUrl" class="btn">Back to Referrals</a>
+            @if (CurrentMember.hasRoleOf("admin"))
+            {
+            <a href="@Url.Action("Edit", new { id = Model.referralID })" class="btn pull-right btn-info">Edit</a>
+            }
+            
+        </div>
+    </div>    
+    
+
+}
+

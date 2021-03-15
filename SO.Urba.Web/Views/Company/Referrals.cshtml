@@ -1,0 +1,15 @@
+﻿@model SO.Urba.Models.ValueObjects.CompanyVo
+
+@{
+    ViewBag.Title = "Provider Referral Record";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+<div class="row-fluid">
+    <div style="float:left; margin-right: 1.5em;">Company Name: <h4 style="display:inline">@Model.companyName</h4></div>
+    <div style="float:left; margin-right: 1.5em;">Contact Person: <h4 style="display:inline">@Model.contactInfo.fullname</h4></div>
+    <div style="float:left; margin-right: 1.5em;">Score: <h4 style="display:inline">@(Model.score != null ? string.Format("{0} ({1})", Model.score, Model.scoreCount) : "N/A")</h4></div>
+</div>
+<hr />
+@Html.Action("ReferralHistory", "Company", new { id = Model.companyId })

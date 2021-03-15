@@ -1,0 +1,101 @@
+﻿@model SO.Urba.Models.ValueObjects.OrganizationVo
+
+@{
+    ViewBag.Title = "Organization Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+<style>
+    .fillIn {
+        width: 95%;
+    }
+</style>
+@using (Html.BeginForm())
+{
+
+        <hr />
+            <div class="row">
+            <div class="span3">
+                Organization ID
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.organizationId)" readonly="true">
+            </div>
+
+            <div class="span1">
+                Active
+                <div>
+                    @Html.EditorFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                Organization Name
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.name)" readonly="true">
+            </div>
+            <div class="span3">
+                Fee Amount
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.feeAmount)" readonly="true">
+
+            </div>
+            <div class="span3">
+                Has Fee Paid
+                @Html.DisplayFor(model => model.hasPaidFee)
+                @*<input type="text" class="form-control" value="@Html.DisplayFor(model => model.hasPaidFee)" readonly="true">*@
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                Full Name
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.fullname)" readonly="true">
+            </div>
+            <div class="span3">
+                E-Mail
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.email)" readonly="true">
+            </div>
+            <div class="span6">
+                Address
+                <input type="text" class="form-control" style="width:97%" value="@Model.contactInfo.fullAddress" readonly="true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Fax
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.fax)" readonly="true">
+            </div>
+            <div class="span2">
+                Cell Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.cell)" readonly="true">
+            </div>
+            <div class="span2">
+                Home Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.homePhone)" readonly="true">
+            </div>
+            <div class="span3">
+                Work Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.workPhone)" readonly="true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                Created Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.created)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.modified)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified By
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.modifiedBy)" readonly="true">
+            </div>
+        </div>
+
+}
+
+<div class="row">
+    <div class="span9">
+        <a href="@Url.Action("Index")" class="btn">Back to List</a>
+        <a href="@Url.Action("Edit", new { id = Model.organizationId })" class="btn pull-right btn-info">Edit</a>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model SO.Urba.Models.ValueObjects.CompanyCategoryTypeVo
+
+@{
+    ViewBag.Title = "Edit Company Category";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.companyCategoryTypeId)
+    
+        <hr /><div class="span12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+       
+
+        <div class="row">
+            <div class="span3">
+                Category Name
+                @Html.EditorFor(model => model.name)
+            </div>
+            <div class="span1">
+                Active
+                <div>
+                    @Html.EditorFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+
+    <div  class="row">
+        <div class="span9">
+            <br />
+            <a href="@Url.Action("Index")" class="btn">Back to List</a>
+            <input type="submit" value="Update" class="btn pull-right btn-info" />
+        </div>
+    </div>    
+
+}

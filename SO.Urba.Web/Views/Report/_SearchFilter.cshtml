@@ -1,0 +1,36 @@
+﻿@model SO.Urba.Models.ViewModels.ReportSearchFilterVm
+@*@using SO.Urba.Models.ValueObjects
+@using SO.Urba.Manager*@
+@{
+    String now = DateTime.Now.ToString("MM/dd/yyyy");
+    String lastYear = DateTime.Now.AddYears(-1).ToString("MM/dd/yyyy");
+}
+<div class="span12" style="color: red">
+    <br />
+    <b>
+        @Html.ValidationSummary()
+    </b>
+</div>
+
+     @Html.ValidationMessageFor(model => model.fromDate)
+     @Html.ValidationMessageFor(model => model.toDate)
+
+ <div style="position:relative;">
+    <div>
+        @Html.Action("companies", "DropDown", new { id = Model.companyId })
+        <br /> <br />
+    </div>
+    <div>
+        @Html.Action("ClientDropDownList")
+        <br /> <br />
+    </div>
+    <div>
+         From:
+        <input type="datetime" id="fromDate" name="fromDate" value="@lastYear" style="width:75px;" />
+        <br /> <br />
+    </div>
+    <div>
+        <span style="margin-left:20px">To:</span> 
+        <input type="datetime" id="toDate" name="toDate" value="@now" style="width:75px;" />
+    </div>
+</div>

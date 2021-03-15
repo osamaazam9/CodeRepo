@@ -1,0 +1,56 @@
+﻿@model List<object>
+@using SO.Urba.Models.ValueObjects
+@using SO.Utility.Extensions
+@using SO.Utility.Helpers
+@{
+    
+    var properties = ClassHelper.getProperties(Model);
+
+    string idKey = null;
+}
+
+<table class="table">
+  
+      @if (properties != null)
+      {
+          properties = properties.Take(5).ToList();
+        <tr>
+
+            @foreach (var prop in properties)
+            {
+                if (idKey == null) { 
+                    idKey = prop;
+                 }
+                
+                 <td style="font-weight:bold;">@prop</td>
+            }
+
+            <td></td>
+        </tr>
+    }
+    @foreach (var row in Model)
+    {
+        var values = ClassHelper.getPropertiesWithValues(row);
+        
+        <tr>
+            @if (values != null)
+            {
+                foreach (var key in properties)
+                    {
+                        <td>@values.getValue(key)</td>
+                    }
+            }
+          
+
+            <td style="width:150px;">
+                <a href="@Url.Action("Edit", new { id = @values.getValue(idKey) })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+                <a href="@Url.Action("Details", new { id = @values.getValue(idKey) })" class="btn" title="Details"><i class="icon-list"></i></a>
+                <a href="@Url.Action("Delete", new { id = @values.getValue(idKey) })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+
+
+            </td>
+        </tr>
+    }
+
+</table>
+*Dynamic

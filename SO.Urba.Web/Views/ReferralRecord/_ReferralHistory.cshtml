@@ -1,0 +1,108 @@
+﻿@model List<SO.Urba.Models.ValueObjects.ReferralVo>
+
+    @using SO.Urba.Managers;
+    @using SO.Urba.Manager.Models.ViewModels;
+
+    @{
+        Layout = null;
+    }
+
+    <div id="provider-referral-history">
+        <h4>Provider Referral History</h4>
+        <div class="filter-container">
+            <p class="filter-label">Filters:</p>
+            <ul class="filter-status">
+                <li aria-pressed="@(ViewBag.referralHistoryFilter == ProviderReferralHistoryFilter.All ? "true" : null)">
+                    @Ajax.ActionLink("All", "ReferralHistory", "ReferralRecord",
+                         new { id = ViewBag.id, referralHistoryFilter = ProviderReferralHistoryFilter.All },
+                         new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "provider-referral-history" })
+                </li>
+                <li aria-pressed="@(ViewBag.referralHistoryFilter == ProviderReferralHistoryFilter.Accepted ? "true" : null)">
+                    @Ajax.ActionLink("Accepted", "ReferralHistory", "ReferralRecord",
+                         new { id = ViewBag.id, referralHistoryFilter = ProviderReferralHistoryFilter.Accepted },
+                         new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "provider-referral-history" })
+                </li>
+            </ul>
+        </div>
+        <div>
+            Total Amount spent so far by this Client in @ViewBag.currentYear is $@ViewBag.totalAmountForFinalPayments
+        </div>
+        <table class="table table-bordered table-hover" style="width:850px">
+            <tr>
+                <th style="width:80px">
+                    Type
+                </th>
+                <th style="width:150px">
+                    Name
+                </th>
+                <th style="width:80px">
+                    Referral Date
+                </th>
+                <th style="width:40px">
+                    Quote
+                </th>
+                <th style="width: 30px">
+                    Notified
+                </th>
+                <th style="width: 30px">
+                    Accepted
+                </th>
+                <th style="width:95px">
+                    Final Payment
+                </th>
+                <th style="width:80px">
+                    Finish Date
+                </th>
+                <th style="width:190px;"></th>
+            </tr>
+
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.companyCategoryType.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.company.name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.referralDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quote)
+                    </td>
+                    <td class="text-center">
+                        @Html.Partial("_NotificationStatus", item.notificationStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.accepted)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.finalQuote)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.finishDate)
+                    </td>
+                    <td style="min-width:130px;">
+
+
+                        @if (item.surveyAnswerses.Count <= 0)
+                        {
+                            <a href="@Url.Action("Create","SurveyAnswer", new { referralId = item.referralId })" class="btn" title="New Survey"><i class="icon-question-sign"></i></a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("SurveyDetails", "SurveyAnswer", new { id = item.referralId })" class="btn" title="View Survey"><i class="icon-ok-sign"></i></a>
+                        }
+                        <!-- Button to trigger modal edit -->
+                        <a onclick="setThisReferralId(@item.referralId)" href="#" class="btn" role="link" data-toggle="modal" title="Edit Referral"><i class="icon-edit"></i></a>
+
+                        @if (CurrentMember.hasRoleOf("Admin"))
+                        {
+                            <a href="@Url.Action("Delete", new { referralId = item.referralId, id = item.clientId, companyCategoryTypeId = item.companyCategoryTypeId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>

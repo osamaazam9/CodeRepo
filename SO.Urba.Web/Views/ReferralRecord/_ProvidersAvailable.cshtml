@@ -1,0 +1,59 @@
+﻿@model  List<CompanyVo>
+@using SO.Urba.Models.ValueObjects
+@{
+    Layout = null;
+
+    }
+
+@if (Model.Count == 0)
+{
+    <h6>There are no companies avaliable in this particular Category</h6>
+}
+<h4>Providers Available</h4>
+
+    <table class="table table-bordered table-hover" style="width:850px">
+        <tr>
+            <th style="width:230px">
+                Company Name
+            </th>
+            <th style="width:200px">
+                Contact
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Score
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in @Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.companyName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contactInfo.fullname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contactInfo.workPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.score)
+                    @if (item.score != null)
+                    {
+                        var vv = string.Format(" ({0})", item.scoreCount);
+                        @(vv)
+                    }
+                </td>
+                <td style="width:150px;">
+                    <!-- Button to trigger modal edit window to creare new referral -->
+                    <a  onclick="addSingleReferral(@ViewBag.clientId, @item.companyId, @ViewBag.companyCategoryTypeId)" href="#" class="btn" role="link" data-toggle="modal" title="Add Referral"><i class="icon-plus-sign"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -1,0 +1,61 @@
+﻿@model SO.Urba.Models.ValueObjects.CompanyCategoryTypeVo
+
+@{
+    ViewBag.Title = "Category Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+    
+    //var val = (this.isActive ? 'Yes' : 'No'); 
+
+}
+
+<h3>@ViewBag.Title</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="">
+        <hr />
+        @Html.ValidationSummary()
+
+        <div class="row">
+            <div class="span3">
+                Category ID
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.companyCategoryTypeId)" readonly="true">
+            </div>
+            <div class="span3">
+                Category Name
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.name)" readonly="true">
+            </div>
+            <div class="span3">
+                Active
+                <div>
+                    @Html.DisplayFor(model => model.isActive)
+                </div>
+                 @*<input type="text" class="form-control" value="@Html.DisplayFor(model => model.isActive)" readonly="true">*@ 
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                Created Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.created)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.modified)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified By
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
+            </div>
+        </div>
+
+    </div>
+}
+
+<div class="row">
+    <div class="span9">
+        <a href="@Url.Action("Index")" class="btn">Back to List</a>
+        <a href="@Url.Action("Edit", new { id = Model.companyCategoryTypeId })" class="btn pull-right btn-info">Edit</a>
+    </div>
+</div>

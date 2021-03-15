@@ -1,0 +1,30 @@
+﻿@model SO.Urba.Models.ValueObjects.NotificationStatus
+
+@using SO.Urba.Models.ValueObjects
+
+@{
+    Layout = null;
+}
+
+@if (Model == NotificationStatus.Sent)
+{
+    <span class="fa-stack fa-lg text-muted" title="Sent">
+        <i class="fa fa-check fa-stack-1x"></i>
+    </span>
+}
+else if (Model == NotificationStatus.Delivered)
+{
+    <span class="fa-stack fa-lg text-muted" title="Delivered">
+        <i class="fa fa-check fa-stack-1x" style="margin-left:4px"></i>
+        <i class="fa fa-check fa-inverse fa-stack-1x" style="margin-left:-3px;"></i>
+        <i class="fa fa-check  fa-stack-1x" style="margin-left:-4px"></i>
+    </span>
+}
+else if (Model == NotificationStatus.Confirmed)
+{
+    <span class="fa-stack fa-lg text-success" title="Confirmed">
+        <i class="fa fa-check fa-stack-1x" style="margin-left:4px"></i>
+        <i class="fa fa-check fa-inverse fa-stack-1x" style="margin-left:-3px;"></i>
+        <i class="fa fa-check  fa-stack-1x" style="margin-left:-4px"></i>
+    </span>
+}

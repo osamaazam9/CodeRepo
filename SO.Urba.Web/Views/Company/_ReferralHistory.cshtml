@@ -1,0 +1,99 @@
+﻿@model List<SO.Urba.Models.ValueObjects.ReferralVo>
+
+    @using SO.Urba.Managers;
+    @using SO.Urba.Manager.Models.ViewModels;
+
+    @{
+        Layout = null;
+    }
+
+    <div id="provider-referral-history">
+        <h4>Client Referral History</h4>
+        <div class="filter-container">
+            <p class="filter-label">Filters:</p>
+            <ul class="filter-status">
+                <li aria-pressed="@(ViewBag.referralHistoryFilter == ProviderReferralHistoryFilter.All ? "true" : null)">
+                    @Ajax.ActionLink("All", "ReferralHistory", "Company",
+                         new { id = ViewBag.id, referralHistoryFilter = ProviderReferralHistoryFilter.All },
+                         new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "provider-referral-history" })
+                </li>
+                <li aria-pressed="@(ViewBag.referralHistoryFilter == ProviderReferralHistoryFilter.Accepted ? "true" : null)">
+                    @Ajax.ActionLink("Accepted", "ReferralHistory", "Company",
+                         new { id = ViewBag.id, referralHistoryFilter = ProviderReferralHistoryFilter.Accepted },
+                         new AjaxOptions { HttpMethod = "GET", UpdateTargetId = "provider-referral-history" })
+                </li>
+            </ul>
+        </div>
+
+        <table class="table table-bordered table-hover" style="width:850px">
+            <tr>
+                <th style="width:80px">
+                    ID
+                </th>
+                <th style="width:80px">
+                    Client Name
+                </th>
+                <th style="width:80px">
+                    Referral Date
+                </th>
+                <th style="width:40px">
+                    Quote
+                </th>
+                <th style="width:95px">
+                    Final Charge
+                </th>
+                <th style="width:80px">
+                    Finish Date
+                </th>
+                <th style="width:95px">
+                    Commission Amount
+                </th>
+                <th style="width:80px">
+                    Commission Date
+                </th>
+                <th style="width:40px">
+                    Notified
+                </th>
+                <th style="width: 30px">
+                    Accepted
+                </th>
+            </tr>
+
+            @foreach (var item in @Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.clientId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.client.contactInfo.fullname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.referralDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quote)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.finalQuote)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.finishDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.commissionAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.commissionDatePaid)
+                    </td>
+                    <td class="text-center">
+                        @Html.Partial("_NotificationStatus", item.notificationStatus)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.accepted)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

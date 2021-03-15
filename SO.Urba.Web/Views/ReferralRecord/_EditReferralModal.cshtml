@@ -1,0 +1,122 @@
+﻿@model SO.Urba.Models.ValueObjects.ReferralVo
+
+@{
+    Layout = "~/Views/Shared/_PlainLayout.cshtml";
+}
+
+<script type="text/javascript">
+    window.onload = function () {
+        var form = $("editFormModal");
+        if(form)
+        {
+            switch (@Model.dlgType) {
+                case 1:
+                    form.attr("action", "@Url.Action("AddSingleReferral", "ReferralRecord", new { id = @Model.clientId, coId = @Model.companyId, companyCategoryTypeId = @Model.companyCategoryTypeId })");
+                    break;
+                case 2:
+                    form.attr("action", "@Url.Action("TripleReferral", "ReferralRecord", new { id = @Model.clientId, companyCategoryTypeId = @Model.companyCategoryTypeId })");
+                    break;
+                case 3:
+                    form.attr("action", "@Url.Action("EditReferralModal", "ReferralRecord", new { referralId = @Model.referralId})");
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+</script>
+
+<form action="#" id="editFormModal" method="post">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(id => Model.clientId)
+    @Html.HiddenFor(coId => Model.companyId)
+    @Html.HiddenFor(companyCategoryTypeId => Model.companyCategoryTypeId)
+
+    @*<h3>@ViewBag.ModalDialogTitle</h3>*@
+
+    <div class="form-horizontal">
+        <div class="span12" style="color: red">
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+
+        @Html.HiddenFor(model => model.referralId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.referralDate, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.referralDate, new { @Value = Model.referralDate.Value.ToString("MM/dd/yy"), @class = "datepicker" })
+                @Html.ValidationMessage("*")
+            </div>
+        </div>
+
+        @if (Model.referralId != 0)
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.quote, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.quote)
+                    @Html.ValidationMessage("*")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.accepted, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.accepted)
+                    @Html.ValidationMessage("*")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.finishDate, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @{ var dd = (Model.finishDate != null) ? Model.finishDate.Value.ToString("MM/dd/yy") : "";}
+                    @Html.EditorFor(model => model.finishDate, new { @Value = dd, Class = "datepicker" })
+                    @Html.ValidationMessage("*")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.finalQuote, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.finalQuote)
+                    @Html.ValidationMessage("*")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.commissionDatePaid, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @{ var cd = (Model.commissionDatePaid != null) ? Model.commissionDatePaid.Value.ToString("MM/dd/yy") : "";}
+                    @Html.EditorFor(model => model.commissionDatePaid, new { @Value = cd, Class = "datepicker" })
+                    @Html.ValidationMessage("*")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.commissionAmount, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.commissionAmount)
+                    @Html.ValidationMessage("*")
+                </div>
+            </div>
+                        }
+        <div class="form-group">
+            @Html.LabelFor(model => model.description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.description, new { @Style = "resize: none;", rows = "4" })
+                @Html.ValidationMessage("*")
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <br />
+            <a href="@Url.Action("CloseModals")" class="btn pull-left"> Close </a>
+            <input type="submit" value="Save" class="btn btn-info pull-right" />
+        </div>
+    </div>
+</form>

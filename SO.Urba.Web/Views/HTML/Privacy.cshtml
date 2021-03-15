@@ -1,0 +1,313 @@
+﻿
+@{
+    ViewBag.Title = "Blog";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+
+    <title> Urban Network </title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Theme ~/style -->
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <!-- Favicon and touch icons  -->
+    <link rel="shortcut icon" href="~/assets/icon/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/icon/apple-touch-icon-158-precomposed.png">
+    <!--navigation bar link-->
+    <style>
+          ul, ol {
+    padding: 0;
+    margin: 0 30px 20px 30px;
+}
+        #comments { padding:0px 15px;
+        }
+         #comments p {
+    font-size: 14px;
+    text-align: justify;
+    font-style:italic;
+}
+    </style>
+</head>
+
+<body class="header-style-1 menu-has-search menu-has-cart">
+    <!--navbar-->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="" href="#"><img src="~/images/urban-logo-Copy.jpg" class="img-responsive" alt="logo" /></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div class="collapse navbar-collapse" id="myNavbar">
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="nav navbar-nav navbar-right social-icon">
+                                    <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-youtube"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+
+
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="nav navbar-nav navbar-right menu-margin">
+                                    <li><a href="~/HTML/index">HOME</a></li>
+                                    <li><a href="~/HTML/our_services">SERVICES</a></li>
+                                    <li><a href="~/HTML/about_us">ABOUT US</a></li>
+                                    <li><a href="~/HTML/how_it_work">HOW IT WORKS</a></li>
+                                    <li><a href="~/HTML/blog">BLOG</a></li>
+                                    <li><a href="~/HTML/FAQ">FAQ</a></li>
+                                    <li><a href="~/HTML/Testimonials">TESTIMONIALS</a></li>
+                                    <li><a href="~/HTML/contact_us" style="border:0;padding-right:0;">CONTACT US</a></li>
+                                    <li><button class="btn" onclick="location.href='@Url.Action("Login","Account",  new { target="_blank" })'"><span class="fa fa-user-circle-o">&nbsp;&nbsp; </span>LOGIN / REGISTER</button></li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="wrapper" class="animsition">
+        <div id="page" class="clearfix">
+            <!--about banner section-1-->
+            <div class="text-center banner-back smallbanner">
+                <h1 class="bold"> PRIVACY POLICY </h1>
+            </div>
+            <!-- Main Content -->
+            <div id="main-content" class="site-main clearfix">
+                <div id="content-wrap" class="container">
+                    
+
+                    <div class="row">
+                        <div id="inner-content" class="inner-content-wrap">
+                            <div class="post-content-single-wrap">
+                                <article>
+                                    <div id="comments" class="comments-area">
+                                        <!--  <h2 class="comments-title">	FAQ </h2>-->
+                                        <h3 class="bold"> PRIVACY POLICY </h3>
+                                        <hr style="background-color:#d5cece;" />
+                                        <p> It is important to<span style="font-size:16px;"> URBAN REFERRAL NETWORK</span> to help our Users retain their privacy when they take advantage of all the Internet has to offer. </p>
+                                        <p> We believe your business is no one else's. Your privacy is important to you and to us. So we will     protect the information you share with us. To protect your privacy,<span style="font-size:16px;"> URBAN REFERRAL NETWORK </span>follows different principles in accordance with worldwide practices for User privacy and data protection.</p>
+                                        <ul style="list-style-image:url(/images/square-1.png);">
+                                            <li><p> We will not sell or give away your name, mail address, phone number, email address or any other information to anyone.</p> </li>
+                                            <li><p> We will use state-of-the-art security measures to protect your information from unauthorized users. </p></li>
+                                        </ul>
+                                        <h4 class="bold"> NOTICE</h4>
+                                        <P> We will ask you when we need information that personally identifies you (personal information) or allows us to contact you. We use your Personal Information for six (6) primary purposes:</P>
+                                        <ul style="list-style-image: url(/images/square-1.png);">
+                                            <li><p>	To make the site easier for you to use by not having to enter information more than once; </p></li>
+                                            <li><p>	To help you quickly find software, services or information; </p></li>
+                                            <li><p>	To help us create content most relevant to you; </p></li>
+                                            <li><p> 	To alert you to product upgrades, special offers, updated information and other new services from <span style="font-size:16px;">URBAN REFERRAL NETWORK’s</span> website;</p></li>
+                                            <li><p> 	To alert you of any substantial discount opportunities from local retail businesses( collectively “Service Providers”) participating in the Network; and,</p></li>
+                                            <li><p>	To get reviews and ratings. </p></li>
+                                        </ul>
+                                        <h4 class="bold"> CONSENT</h4>
+                                        <p>If you choose not to register or provide personal information on our Request Form, you can still use most of <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a> services, but you will not be able to access areas that require registration.  </p>
+                                        <P>If you decide to register, you will be able to benefit from a list of services provided by participating service providers at <a href="www.urbanreferralnetwork.com"><u>www.urbanreferralnetwork.com</u></a>. You may also, select the option stating that you do not wish to receive marketing messages from <span style="font-size:16px;">URBAN REFERRAL NETWORK... </span></P>
+                                        <P><span style="font-size:16px;"> URBAN REFERRAL NETWORK</span> occasionally allows Living Urban, our online marketing program to offer substantial discount opportunities from local retail businesses participating in our network. If you do not want to receive these offers, you may select the option stating that you do not wish to receive marketing materials from third parties. </P>
+
+                                        <h4 class="bold"> ACCESS</h4>
+                                        <p>We will provide you with the means to ensure that your personal information is correct and current. You may review and update this information at any time at the Visitor Center where, you can: </p>
+                                        <ul style="list-style-image: url(/images/square-1.png);">
+                                            <li><p>	View and edit personal information you have already given us.  </p></li>
+                                            <li><p>Tell us whether you want us to send you marketing information, or whether you want third parties to send you their offers by postal mail.   </p></li>
+                                            <li><p>	Sign up for electronic newsletters about our services and products.  </p></li>
+                                            <li><p>	Register. Once you register, you won't need to do it again. Your information remains in our data base thereafter.   </p></li>
+
+                                        </ul>
+
+                                        <h4 class="bold"> SECURITY</h4>
+                                        <p><span style="font-size:16px;"> URBAN REFERRAL NETWORK</span> has taken measures to protect the security of your personal information and to ensure that your choices for its intended use are honored. We take precautions to protect your data from loss, misuse, unauthorized access or disclosure, alteration, or destruction. </p>
+                                        <p>Urban Referral Network will not endorse any business unless it passes our screening requirements, including a customer satisfaction background investigation. This screening allows us to determine if the service provider is qualified and equipped to meet consumer needs. Businesses are required to raise their standards in many areas, including: </p>
+                                        <ul style="list-style: square;">
+                                            <li><p>	Competitive pricing; </p></li>
+                                            <li><p>		Quality goods and services; </p></li>
+                                            <li><p>		Resolving consumer complaints; and  </p></li>
+                                            <li><p>	Obtaining the appropriate licenses , insurance, permits and bonding   </p></li>
+                                        </ul>
+
+                                        <p><span style="font-size:16px;"> URBAN REFERRAL NETWORK </span>strictly protects the security of your personal information and honors your choices for its intended use. We carefully protect your data from loss, misuse, unauthorized access or disclosure, alteration, or destruction.</p>
+                                        <p>  Your personal information is never shared outside the company without your permission, except under conditions explained above. Inside the company, data is stored in password-controlled servers with limited access. Your information may be stored and processed in the United States of America or any other country where <span style="font-size:16px;">URBAN REFERRAL NETWORK</span>, its subsidiaries, affiliates or agents are located.</p>
+
+                                        <h4 class="bold"> NOTICE TO PARENTS</h4>
+                                        <p> Parents or guardians: We want to help you guard your children's privacy. We encourage you to talk to your children about safe and responsible use of their Personal Information while using the Internet. </p>
+
+                                        <h6 class="bold">The Urban Referral Network site does not publish content that is targeted to children. </h6>
+                                        <h4 class="bold"> ENFORCEMENT</h4>
+                                        <p> If for some reason you believe<span style="font-size:16px;"> URBAN REFERRAL NETWORK </span>has not adhered to these principles, please notify us by email and we will do our best to determine and correct the problem promptly. Please add the words Privacy Policy are in the Subject line.</p>
+
+                                        <h4 class="bold"> REFERRALS</h4>
+                                        <p>There are no costs to use our service.  We offer personalized service on our website by referring suitable, qualified and reliable contractors, home remodeling companies, electricians, plumbers, HVAC technicians, handymen, landscapers, floor refinishers, interior designers, architects, carpenters, roofers, painters, locksmiths, welders, and other specialty trades. </p>
+                                        <p>As mentioned above, all registered Users’ information is kept confidential and is used solely for the purpose of matching a user with a suitable business or service provider participating in our Network. </p>
+
+                                        <h4 class="bold"> WHAT WE DO WITH THE INFORMATION YOU SHARE</h4>
+                                        <p> When you join the Urban Referral Network, you are asked to provide certain key contact and personal information.  We use this information to match you with the best home improvement company for your intended job and send you updates about your selection in order to measure your satisfaction with the service.</p>
+                                        <p>The <span style="font-size:16px;"> URBAN REFERRAL NETWORK </span> will disclose your personal information, without notice, only if required to do so by law or in the good faith belief that such action is necessary to: (a) conform to the edicts of the law or comply with legal process served on<span style="font-size:16px;"> URBAN REFERRAL NETWORK </span> or the site; (b) protect and defend the rights or property of <span style="font-size:16px;"> URBAN REFERRAL NETWORK </span> and its family of websites, and, (c) act in urgent circumstances to protect the personal safety of users of <span style="font-size:16px;"> URBAN REFERRAL NETWORK </span>, its websites, or the public. </p>
+
+
+                                    </div><!--/#comments -->
+                                </article>
+                            </div><!-- /.post-content-single-wrap -->
+                        </div><!-- /.inner-content-wrap -->
+                    </div><!-- /#site-content -->
+
+
+
+
+
+                   
+                </div><!-- /#content-wrap -->
+            </div><!-- /#main-content -->
+            <!--footer section-6-->
+            <footer id="footer">
+                <div id="footer-widgets" class="container ~/style-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="widget widget_text">
+                                <h2 class="widget-title"><span>ABOUT US</span></h2>
+                                <div class="textwidget">
+                                    <img src="~/images/urban-logo-Copy.jpg" width="100" height="" alt="image" class="margin-top-5 margin-bottom-5">
+                                    <p>
+                                        The<span style="color:#ff9800;"> URBANetwork </span> founded in 1988 by a
+                                        coalition of block clubs and community
+                                        organizations to improve the quality of life
+                                        in urban communities, created the Urban
+                                        Referral Network in 2016 as a means to
+                                        improve the quality of services and goods
+                                        provided to urban consumers.
+                                    </p>
+                                    <div class="widget widget_links">
+
+                                        <ul class="wprt-links clearfix col2">
+                                            <li class="style-2"><a href="~/HTML/Terms" style="padding-right:15px;"> Terms & Condtions </a><a href="~/HTML/Privacy"> Privacy Policy </a></li>
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h2 class="widget-title"><span>COMPANY LINKS</span></h2>
+                                <ul class="wprt-links clearfix col2">
+                                    <li class="style-2"><a href="~/HTML/about_us"> Phone Consultation </a></li>
+                                    <li class="style-2"><a href="~/HTML/about_us"> Help Desk </a></li>
+                                    <li class="style-2"><a href="~/HTML/about_us"> Senior Care </a></li>
+                                </ul>
+
+                                <form class="form-group input-group" ~/style="margin-top: 20px;">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-btn">
+                                        <button class="btn" type="submit">Subscribe</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="widget widget_information">
+                                <h2 class="widget-title"><span>CONTACT INFO</span></h2>
+                                <ul class="style-2">
+                                    <li class="address clearfix">
+                                        <span class="hl">Address:</span>
+                                        <span class="text">
+                                            5349 Crenshaw Boulevard, Suite 101
+                                            Los Angeles, CA  90043
+                                        </span>
+                                    </li>
+                                    <li class="phone clearfix">
+                                        <span class="hl">Phone:</span>
+                                        <span class="text">+1 (323) 290-4089</span>
+                                    </li>
+                                    <li class="email clearfix">
+                                        <span class="hl">E-mail:</span>
+                                        <span class="text">contact@construction.com</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="widget widget_spacer">
+                                <div class="wprt-spacer clearfix" data-desktop="10" data-mobi="10" data-smobi="10" ~/style="height:10px"></div>
+                            </div>
+
+                            <div class="widget widget_socials">
+                                <div class="socials">
+                                    <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- Bottom -->
+            <div id="bottom" class="clearfix ~/style-1">
+                <div id="bottom-bar-inner" class="wprt-container">
+                    <div class="bottom-bar-inner-wrap">
+
+                        <div class="bottom-bar-content">
+                            Copyright &copy; 2018 URBAN Network.
+
+                        </div><!-- /.bottom-bar-content -->
+
+                        <div class="bottom-bar-menu">
+                            Powered by YES IT Labs
+                        </div><!-- /.bottom-bar-menu -->
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div><!-- /#page -->
+    </div><!-- /#wrapper -->
+
+    <a id="scroll-top"></a>
+    <!-- BackToTop Button -->
+    <!-- Javascript -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/animsition.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/countTo.js"></script>
+    <script src="~/assets/js/fitText.js"></script>
+    <script src="~/assets/js/flexslider.js"></script>
+    <script src="~/assets/js/vegas.js"></script>
+    <script src="~/assets/js/cube.portfolio.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
+</body>
+</html>
+

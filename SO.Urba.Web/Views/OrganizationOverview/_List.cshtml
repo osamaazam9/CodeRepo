@@ -1,0 +1,71 @@
+﻿@model List<object>
+@using SO.Urba.Models.ValueObjects
+@using SO.Utility.Extensions;
+@{
+    ViewBag.Title = "_List";
+    var result = Model.convertTo<OrganizationVo>();
+}
+
+<button type="button" id="resetOrgsFee" style="margin-bottom: 5%" class="btn"
+        onclick="location.href = '@Url.Action("ResetOrgFeeAmount", "OrganizationOverview")'; return false">
+    Reset All Organization Fee Amount
+</button>
+<table id="orgs" class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Fee Amount
+        </th>
+        <th>
+            Has Paid Fee
+        </th>
+        <th>
+            Contact Name
+        </th>
+        <th>
+            Contact Phone Number
+        </th>
+        <th>
+            Total Members in Organization
+        </th>
+    </tr>
+    @foreach (var item in result)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.feeAmount)
+            </td>
+            <td>
+                @Html.Label(item.hasPaidFee == null ? "N/A" : item.hasPaidFee.Value.ToString())
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contactInfo.fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contactInfo.workPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.totalAmountofMembers)
+            </td>
+            <td>
+                <div style="float:left; width:30%; margin-right:45px">
+                    <input type="button" value="See All Members" class="btn" onclick="location.href='@Url.Action("Index", "OrganizationOverviewMembers", new { id = item.organizationId })'" />
+                </div>
+                <div style="float:right;">
+                    <a href="@Url.Action("ExportForCertainOrg", "OrganizationOverview", new { id = item.organizationId })" class="btn" title="Export"><i class="icon-circle-arrow-down"></i></a>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+<script>
+    $('#resetOrgsFee').click(function () {
+        return window.confirm("Important: Are you sure you want to reset all Organizations Fee Amounts to Zero?");
+    });
+</script>

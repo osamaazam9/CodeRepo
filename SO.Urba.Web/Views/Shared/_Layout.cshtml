@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Urba</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Urba">
+    <meta name="author" content="">
+    <!-- Styles -->
+    @*<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">*@
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 52px;
+            padding-bottom: 40px;
+        }
+
+        /*div.ui-datepicker {
+            font-size: 15px;
+        }*/
+    </style>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.min.js")
+    @Scripts.Render("~/Scripts/jquery.validate.unobtrusive.min.js")
+    @Scripts.Render("~/Scripts/bootstrap-datepicker.js")
+
+    <link href="~/Scripts/select2-3.4.4/select2.css" rel="stylesheet" />
+    <script src="~/Scripts/select2-3.4.4/select2.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var height = $("#mainContent").height();
+            $('#leftColumn').height(height);
+            // alert(height);
+
+            $("[id*='Date']").datepicker({
+                format: 'mm/dd/yyyy',
+                todayBtn: "linked",
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            $("[title='Delete']").click(function () {
+                return confirm('Are you sure you want to delete? ');
+            });
+
+            //Seyran: Adding this to have DatePicker invalidates the Modalness of referral edit dialog ...for some strange reason
+            //$("#referralDate").datepicker({
+            //    format: 'mm/dd/yyyy',
+            //    todayBtn: "linked",
+            //    autoclose: true,
+            //    todayHighlight: true
+            //});
+
+            //Seyran: getting runtime(debug time) error on this:
+            // $(".select2").select2 undefined
+            $(".select2").select2(
+                {
+                    dropdownAutoWidth: false,
+                    width: 'element'
+                });
+        });
+
+
+        function closeModals() {
+            var mdl = $('.modal');
+            mdl.modal('hide');
+        }
+        function closeModalsAndRefresh() {
+            closeModals();
+            location.reload(true);
+        }
+
+    </script>
+    <!-- Le styles -->
+</head>
+
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container" style="width:90%;">
+                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="brand" href="~/Home/Index">
+                    Urba
+                </a>
+
+                <div class="nav-collapse collapse">
+
+                    @Html.Partial("_TopMenu")
+                    @Html.Partial("_LoginPartial")
+
+                </div><!--/.nav-collapse -->
+
+
+            </div>
+        </div>
+    </div>
+    <div class="container" style="background-color:white; width:90%;">
+
+
+        <!-- Example row of columns -->
+        <div class="row">
+
+
+            <div class="span12">
+
+                @RenderBody()
+
+            </div>
+
+        </div>
+
+
+    </div> <!-- /container -->
+
+    <div class="container">
+        <footer class="footer">
+            <hr>
+            <p style="text-align:center;">&copy; Urba 2014</p>
+        </footer>
+    </div>
+    <!-- Le javascript
+    ================================================== -->
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    @*@Scripts.Render("~/Content/bootstrap/js/bootstrap.min.js")*@
+</body>
+</html>
+

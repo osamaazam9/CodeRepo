@@ -1,0 +1,78 @@
+﻿@model SO.Urba.Models.ViewModels.SurveyAnswerVm
+@using SO.Urba.Managers
+@using SO.Urba.Models.ValueObjects
+
+@{
+    ViewBag.Title = "New Survey";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+
+    List<SelectListItem> list = new List<SelectListItem>();
+    list.Add(new SelectListItem { Text = "Poor", Value = "1" });
+    list.Add(new SelectListItem { Text = "Fair", Value = "2" });
+    list.Add(new SelectListItem { Text = "Good", Value = "3" });
+    list.Add(new SelectListItem { Text = "Very Good", Value = "4" });
+    list.Add(new SelectListItem { Text = "Excellent", Value = "5" });
+}
+
+
+<h2>@ViewBag.Title</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <hr />
+        <div class="span9" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+
+        <div class="row">
+            <div class="span6">
+                Question
+            </div>
+            <div class="span3">
+                Answer
+            </div>
+        </div>
+        <hr />
+
+        @for (var i = 0; i < Model.voSlist.Count; i++)
+        {
+            @Html.HiddenFor(model => model.voSlist[i].questionTypeId)
+            @Html.HiddenFor(model => model.voSlist[i].referralId)
+            @Html.HiddenFor(model => model.voSlist[i].surveyAnswerId)
+            <div class="row">
+                <div class="span6">
+                    @Html.DisplayFor(model => model.voSlist[i].questionType.questionText)
+                </div>
+                <div class="span3">
+                    @Html.DropDownList("voSlist[" + i + "].answer", list, list[(int)Model.voSlist[i].answer - 1].Text, new { id = "voSlist_" + i + "_answer" })
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="span9">
+                Comment
+                @Html.TextAreaFor(model => model.comment, new { rows = 4, style = "width:97%" })
+            </div>
+        </div>
+
+    </div>
+    
+    <div  class="row">
+        <div class="span9">
+            <br />
+            <a href="@ViewBag.returnUrl" class="btn">Cancel</a>
+            <input type="submit" value="Update" class="btn pull-right btn-info" />
+        </div>
+    </div>
+    
+}
+
+

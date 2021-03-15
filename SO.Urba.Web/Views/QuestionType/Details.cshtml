@@ -1,0 +1,48 @@
+﻿@model SO.Urba.Models.ValueObjects.QuestionTypeVo
+@using SO.Urba.Managers;
+@{
+    ViewBag.Title = "Question Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary()
+
+        <div class="row">
+            <div class="span3">
+                Question ID
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.questionTypeId)" readonly="true">
+            </div>
+            <div class="span1">
+                Active
+                <div>
+                    @Html.DisplayFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+ 
+        <div class="row">
+            <div class="span3">
+                Question
+                <input type="text" style="width:300%" class="form-control" value="@Html.DisplayFor(model => model.questionText)" readonly="true">
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="span9">
+                <br />
+                <a href="@Url.Action("Index")" class="btn">Back to List</a>
+                @if (CurrentMember.hasRoleOf("admin"))
+                {
+                    <a href="@Url.Action("Edit", new { id = Model.questionTypeId })" class="btn pull-right btn-info">Edit</a>
+                }
+            </div>
+        </div>    
+
+}
+

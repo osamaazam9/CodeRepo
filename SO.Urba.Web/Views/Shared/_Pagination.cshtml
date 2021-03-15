@@ -1,0 +1,55 @@
+﻿@model SO.Utility.Classes.Paging
+
+<input data-val="true" data-val-number="The field pageNumber must be a number." data-val-required="The pageNumber field is required." id="paging_pageNumber" name="paging.pageNumber" type="hidden" value="@Model.pageNumber" />
+
+<div class="pagination pull-right" style="padding-right:20px;">
+        
+    
+    
+  <ul>
+
+     @if (Model.totalCount > (int)Model.rowCount)
+      {
+
+          if (Model.pageNumber <= 1)
+          {
+                <li class="disabled"><a  ><i class="icon-large icon-backward"></i></a></li>
+                <li class="disabled"><a  >Prev</a></li>
+          }
+          else
+          {
+                <li ><a href="#"  onclick="$('#paging_pageNumber').val(@Model.prevPagesLinks) ; $('#filterForm').submit();return false;"><i class="icon-large icon-backward"></i></a></li>
+                <li ><a href="#" onclick="$('#paging_pageNumber').val(@Model.pageNumber-1) ; $('#filterForm').submit();return false;">Prev</a></li>
+          }
+          for (int i = Model.startingLinkPage; i <= Model.endingLinkPage; i++)
+          {
+              if (i == Model.pageNumber)
+              {
+                  <li class="disabled"><a >@i</a></li>
+              }
+              else
+              { 
+               <li><a href="#" onclick="$('#paging_pageNumber').val(@i) ; $('#filterForm').submit();return false;">@i</a></li>
+              }
+          }
+          if (Model.pageNumber >= Model.totalPages)
+          {
+              <li class="disabled"><a >Next</a></li>
+              <li class="disabled"><a ><i class="icon-large icon-forward"></i></a></li>
+          }
+          else
+          {
+              <li ><a href="#" onclick="$('#paging_pageNumber').val(@Model.pageNumber+1) ; $('#filterForm').submit();return false;">Next</a></li>
+              <li ><a href="#" onclick="$('#paging_pageNumber').val(@Model.nextPagesLinks) ; $('#filterForm').submit();return false;"><i class="icon-large icon-forward"></i></a></li>
+          }
+      }
+      else 
+      {
+                      <li class="disabled"><a  ><i class="icon-large icon-backward"></i></a></li>
+                <li class="disabled"><a  >Prev</a></li>
+          <li class="disabled"><a >1</a></li>
+              <li class="disabled"><a >Next</a></li>
+              <li class="disabled"><a ><i class="icon-large icon-forward"></i></a></li>
+      }
+  </ul>
+</div>

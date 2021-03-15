@@ -1,0 +1,83 @@
+﻿@model SO.Urba.Manager.Models.ViewModels.ReferralRecordVm
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<script type="text/javascript">
+    function addSingleReferral(cId, coId, companyCategoryTypeId) {
+        var url = "/ReferralRecord/AddSingleReferral/?id=" + cId + "&coId=" + coId + "&companyCategoryTypeId=" + companyCategoryTypeId + "&dlgType=1";
+        $('#myModalBody').css('min-height', 250);
+        $('#modalIframe').attr('src', url);
+        $('#modalIframe').attr('height', 250);
+        $("#referralModalHeader h3").text("Add new referral");
+        $('#editReferralModal').modal('show');
+    }
+
+    function addTripleReferral(cId, companyCategoryTypeId) {
+        var url = "/ReferralRecord/TripleReferral/" + cId + "?companyCategoryTypeId=" + companyCategoryTypeId + "&dlgType=2";
+        $('#myModalBody').css('min-height', 250);
+        $('#modalIframe').attr('src', url);
+        $('#modalIframe').attr('height', 250);
+        $("#referralModalHeader h3").text("Add triple referral");
+        $('#editReferralModal').modal('show');
+    };
+
+    function setThisReferralId(referralId) {
+        var url = "/ReferralRecord/EditReferralModal/?referralId=" + referralId + "&dlgType=3";
+        $('#myModalBody').css('min-height', 500);
+        $('#modalIframe').attr('src', url);
+        $('#modalIframe').attr('height', 500);
+        $("#referralModalHeader h3").text("Edit referral");
+        $('#editReferralModal').modal('show');
+    };
+</script>
+
+<h3>Referral Record</h3>
+
+@Html.Action("ClientInfoOnReferralRecord", "ReferralRecord", new { id = Model.clientId })
+
+
+<hr />
+<form id="providersForm" method="get" action="@Url.Action("Index", "ReferralRecord", new { id = Model.clientId })">
+    @Html.HiddenFor(id => Model.clientId)
+    @*@Html.Hidden("companyCategoryTypeId", Model.companyCategoryTypeId)*@
+    <h4>Select Service</h4>
+    @Html.Action("CompanyCategoriesDropDown", "ReferralRecord", new { companyCategoryTypeId = Model.companyCategoryTypeId })
+
+    <!-- Providers Available -->
+    @Html.Action("ProvidersAvailable", "ReferralRecord", new { id = Model.clientId, companyCategoryTypeId = Model.companyCategoryTypeId })
+</form>
+
+<form method="post" action="@Url.Action("Index", "ReferralRecord", new { id = Model.clientId  })">
+    <!-- Button to trigger modal edit window to creare new referral -->
+    @if ((bool)TempData["trippleDisabled"] == false)
+    {
+        <a onclick="addTripleReferral(@Model.clientId, @Model.companyCategoryTypeId)" href="#"
+           class="btn pull-right btn-info" role="link" data-toggle="modal" title="Add Triple Referral">Triple Referral</a>
+        <br />
+    }
+    else
+    {
+        <a style="cursor:no-drop;"
+           class="btn pull-right btn-info disabled">Triple Referral</a>
+        <br />
+    }
+
+</form>
+
+<!-- Provider Referral History -->
+@Html.Action("ReferralHistory", "ReferralRecord", new { id = Model.clientId })
+
+
+<!-- Modal to edit Existing Referral -->
+<div id="editReferralModal" class="modal hide fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="referralModalHeader" class="modal-header">
+        <h3></h3>
+    </div>
+    <div class="modal-body" id="myModalBody">
+        <iframe id="modalIframe" width="500" height="500" scrolling="no" frameborder="0"></iframe>
+    </div>
+</div>

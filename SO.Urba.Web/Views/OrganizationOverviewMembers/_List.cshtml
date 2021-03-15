@@ -1,0 +1,56 @@
+﻿@model List<object>
+@using SO.Urba.Models.ValueObjects
+@using SO.Utility.Extensions;
+@{
+    ViewBag.Title = "_List";
+    var result = Model.convertTo<ContactInfoVo>();
+}
+<div style="margin-bottom: 10%;">
+<div style="float:left; width:30%; margin-right:45px; font-size: large;">@ViewBag.orgName</div>
+<div style="float:right; font-size: large;">
+    Total Number of Members:
+    @ViewBag.TotalMembers
+</div>
+</div>
+
+
+<table id="members" class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Member Name
+        </th>
+        <th>
+            Member Phone Number
+        </th>
+        <th>
+            Member Email
+        </th>
+        <th>
+            Member Fee Amount
+        </th>
+        <th>
+            Member Address
+        </th>
+    </tr>
+    @foreach (var item in result)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.workPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.feeAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fullAddress)
+            </td>
+        </tr>
+    }
+
+</table>

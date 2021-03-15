@@ -1,0 +1,55 @@
+﻿@model List<object>
+@using SO.Urba.Models.ValueObjects
+@using SO.Utility.Extensions;
+@{
+
+    ViewBag.Title = "_List";
+
+    var result = Model.convertTo<SurveyAnswerVo>();
+
+    string[] answers = {"N/A","Poor","Fair", "Good", "Very Good","Excellent" };
+}
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<p style="margin-top:10px; margin-bottom:10px;">
+    <a href="@Url.Action("Create")" class="btn btn-info">Create New</a>
+</p>
+
+<table class="table">
+    <tr>
+
+        <th>
+            Referral Id
+        </th>
+        <th>
+            Question
+        </th>
+        <th>
+            Answer
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in result) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.referralId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.questionType.questionText)
+        </td>
+        <td>
+            @answers[item.answer?? 0]
+               
+        </td>
+        <td style="width:150px;">
+            <a href="@Url.Action("Edit", new { id = item.surveyAnswerId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Details", new { id = item.surveyAnswerId })" class="btn" title="Details"><i class="icon-list"></i></a>
+            <a href="@Url.Action("Delete", new { id = item.surveyAnswerId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

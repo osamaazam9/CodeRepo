@@ -1,0 +1,150 @@
+﻿@model SO.Urba.Models.ValueObjects.ContactInfoVo
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+
+<fieldset class="form-horizontal">
+    <h4>Company Details</h4>
+    <hr />
+
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.firstName)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.firstName)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.lastName)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.lastName)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.address)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.address)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.city)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.city)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.zip)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.zip)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.homePhone)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.homePhone)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.workPhone)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.workPhone)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.fax)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.fax)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.cell)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.cell)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.email)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.email)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.zip)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.zip)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.created)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.created)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.createdBy)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.createdBy)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.modified)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modified)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.modifiedBy)
+        </div>
+        <div class="controls">
+            <input type="text" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="control-label">
+            @Html.DisplayNameFor(model => model.isActive)
+        </div>
+        <div class="controls">
+            @Html.DisplayFor(model => model.isActive)
+        </div>
+    </div>
+
+</fieldset>
+
+<div class="row">
+    <div class="span9">
+        <a href="@Url.Action("Index")" class="btn">Back to List</a>
+        <a href="@Url.Action("Edit", new { id = Model.contactInfoId })" class="btn pull-right btn-info">Edit</a>
+    </div>
+</div>
+

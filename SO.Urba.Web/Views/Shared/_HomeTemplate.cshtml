@@ -1,0 +1,535 @@
+﻿@model HomePageContent
+
+
+
+<div id="page" class="clearfix">
+    <!-- Hero Background SlideShow -->
+    <div id="hero-section" data-number="3" data-image-1="/images/demo.png" data-image-2="/images/demo-4.jpg" data-image-3="/images/demo-3.jpg" data-effect="fade">
+        @if (Model != null)
+        {
+        @Html.Raw(Model.Section1)
+        }
+        else
+        {
+        <div class="hero-content">
+            <div class="hero-title scroll" data-min="28px" data-max="80px">
+                <h1 contenteditable="true">WELCOME</h1>
+                <h1 contenteditable="true">URBAN REFERRAL NETWORK </h1>
+
+            </div>
+            <div class="hero-text">
+                <ul class="nav slider-icon">
+                    <li contenteditable="true"><i class="fa fa-circle"></i> Quality Products</li>
+                    <li contenteditable="true"><i class="fa fa-circle"></i> Quality Services</li>
+                    <li contenteditable="true"><i class="fa fa-circle"></i> Quality Craftsmanship</li>
+                </ul>
+            </div>
+            <div class="hero-button">
+                <a class="wprt-button rounded-3px learn-more" href="#" contenteditable="true">LEARN MORE</a>
+                <a class="wprt-button rounded-3px call-us" href="#" contenteditable="true">CALL US NOW</a>
+            </div>
+        </div><!-- /.hero-content -->
+        }
+
+
+        <a class="arrow scroll-target" href="#services-section"></a><!-- change href value to ID of section you want to scroll down -->
+    </div>
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+                        <!--  CREATE PROJECT TO CUSTOMER  -->
+                        <div id="section1">
+                            @if (Model != null)
+                            {
+                            @Html.Raw(Model.Section2)
+                            }
+                            else
+                            {
+                            <section>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60" style="height:70px"></div>
+                                        </div>
+                                        <div class="col-md-7 projcust">
+                                            <h2 style="margin-bottom: 0px;" id="h2_1" contenteditable="true"><b> CREATED TO PROTECT THE CONSUMER </b></h2>
+                                            <div class="wt-separator-outer">
+                                                <div class="wt-separator left">
+                                                    <span class="separator-left bg-primary" style="height:3px; left:28px;"></span>
+                                                </div>
+                                            </div>
+                                            <p class="text-justify paddtb10" id="p1" contenteditable="true">
+                                                <span class="webcolor"> Urban Referral Network </span> was created in 2016 solely for one mission – consumer protection. Over
+                                                several years,  we  have worked  hard  to  ensure  that  consumers get  fair  pricing, quality
+                                                goods and excellent  service  delivery  from  business owners  within their local  communities. To
+                                                this end,  we have  partnered with  tested and trusted  tradesmen and  businesses,  all across Los
+                                                Angeles County,  to  create  a  valuable network  for urban consumers looking for top dollar value for
+                                                every cent spent.
+                                            </p>
+                                            <h3 id="head2" contenteditable="true"> Quality Products. Quality Services. Quality Craftsmanship. </h3>
+                                            <p class="text-justify" id="p2" contenteditable="true">
+                                                Individuals  and   communities   who  take  advantage  of <span class="webcolor"> Urban Referral Network </span>   value
+                                                offering  win  in  every area – from incredible financial savings  to  better customer  service.  We
+                                                ensure  that  all  participating  businesses  put  the  needs  of <span class="webcolor"> Urban Referral Network </span>
+                                                customers above all  else. The  quality  of  product,  service or craftsmanship  provided  is  not
+                                                compromised in any way. This means that  consumers  can  be  shielded  from negative business
+                                                practices and unfair treatment. The end goal is to give you - the consumer true peace of mind.
+                                            </p>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="callus">
+                                                <div class="thumbnail">
+                                                    <img src="~/assets/img/callme.jpg" alt="Call us">
+                                                    <div class="caption text-center">
+                                                        <h4 class="bold text-white" id="h4_1" contenteditable="true"> WHEN IN NEED OF SERVICE </h4>
+                                                        <h4 id="h4_2" contenteditable="true"> CALL US 1-800-777-7777 </h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            }
+                            @*@Html.Raw(Model.Section2)*@
+
+                        </div>
+                        <!-- Why Choose us -->
+                        <div id="section2">
+                            @if (Model != null)
+                            {
+                            @Html.Raw(Model.Section3)
+                            }
+                            else
+                            {
+                            <section class="paddtb60 whychoose_us">
+                                <div class="container">
+                                    <div id="section2_1">
+                                        <div class="row">
+                                            <div class="col-md-12 projcust">
+                                                <h2 class="text-center bold" id="h2_2" contenteditable="true"> WHY CHOOSE US </h2>
+                                                <!-- Border-->
+                                                <div class="wt-separator-outer">
+                                                    <div class="wt-separator style-square">
+                                                        <span class="separator-left bg-primary"></span>
+                                                        <span class="separator-right bg-primary"></span>
+                                                    </div>
+                                                </div>
+                                                <p class="text-center paddb30" id="p3" contenteditable="true"> Urban Referral Network (URN) was created to protect and economically grow the Urban Consumer, provide education, community awareness and facilitate the availability of quality goods and services to the community. </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="section2_2">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-4 animate_line">
+                                                <div class="thumbnail text-center bg-white">
+                                                    <div class="icon-lg m-b20">
+                                                        <a href="#" class="icon-cell"> <img src="~/assets/img/engineer.png" alt="..."> </a>
+                                                    </div>
+                                                    <div class="caption">
+                                                        <h3 id="h3_1" contenteditable="true"> QUALITY SERVICE </h3>
+                                                        <p class="text-justify" id="p4" contenteditable="true">Members will be afforded access to reliable and skilled service providers within their local community. These service providers will have been pre-screened and vetted before their services are referred to members. </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4 animate_line">
+                                                <div class="thumbnail text-center bg-white">
+                                                    <div class="icon-lg m-b20">
+                                                        <a href="#" class="icon-cell"> <img src="~/assets/img/light-bulb.png" alt="..."> </a>
+                                                    </div>
+                                                    <div class="caption">
+                                                        <h3 id="h3_2" contenteditable="true"> INTEGRITY </h3>
+                                                        <p class="text-justify" id="p5" contenteditable="true">URN was designed to protect the interest of its members.  All services and products endorsed by us will be held to the highest standards of integrity.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-4 animate_line">
+                                                <div class="thumbnail text-center bg-white">
+                                                    <div class="icon-lg m-b20">
+                                                        <a href="#" class="icon-cell"> <img src="~/assets/img/compass.png" alt="..."> </a>
+                                                    </div>
+                                                    <div class="caption">
+                                                        <h3 id="h3_3" contenteditable="true"> COMMUNITY INVESTMENT </h3>
+                                                        <p class="text-justify" id="p6" contenteditable="true"> Our emphasis on local businesses will contribute to the economic growth of the community. On a dollar-for-dollar basis, the local economic impact of independently owned businesses are significantly greater than that of national chains, because, locally owned businesses tend to keep their profits in the community and therefore are more likely to purchase goods and services close to home.</p>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4 animate_line">
+                                                <div class="thumbnail text-center bg-white">
+                                                    <div class="icon-lg m-b20">
+                                                        <a href="#" class="icon-cell"> <img src="~/assets/img/helmet.png" alt="..."> </a>
+                                                    </div>
+                                                    <div class="caption">
+                                                        <h3 id="h3_4" contenteditable="true"> CONSUMER PROTECTION </h3>
+                                                        <p class="text-justify" id="p7" contenteditable="true">Participants will be held to a high standard. Our members will be assured that they will receive fair pricing, courteous treatment and quality goods and services. Merchants who cannot adhere to these standards will be directed to leave the program.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4 animate_line">
+                                                <div class="thumbnail text-center bg-white">
+                                                    <div class="icon-lg m-b20">
+                                                        <a href="#" class="icon-cell"> <img src="~/assets/img/brickwall.png" alt="..."> </a>
+                                                    </div>
+                                                    <div class="caption">
+                                                        <h3 id="h3_5" contenteditable="true"> EDUCATION </h3>
+                                                        <p class="text-justify" id="p8" contenteditable="true">Through URN sponsored seminars and workshops members will be afforded opportunities to enrich themselves on an assortment of issues and topics, ranging fromconsumer education, retirement planning, financial planning etc.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-4 animate_line">
+                                                <div class="thumbnail text-center bg-white">
+                                                    <div class="icon-lg m-b20">
+                                                        <a href="#" class="icon-cell"> <img src="~/assets/img/no-entry.png" alt="..."> </a>
+                                                    </div>
+                                                    <div class="caption">
+                                                        <h3 id="h3_6" contenteditable="true"> COMMUNITY RESOURCES </h3>
+                                                        <p class="text-justify" id="p9" contenteditable="true"> Along with our referral service, we will provide information regarding community resources through our Help Desk. Senior Citizen resources will be provided through our Senior Care services, and planning/architecture assistance will be provided through our Phone Consultation service.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </section>
+                            @*@Html.Raw(Model.Section3)*@
+                            }
+
+                        </div>
+                    </div>
+                    <div id="section3">
+                        @*@Html.Raw(Model.Section4)*@
+                        @if (Model != null)
+                        {
+                        @Html.Raw(Model.Section4)
+                        }
+                        else
+                        {
+                        <section class="make_everydollar">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <h2 class="line-height-normal margin-bottom-10 bold" id="h2_3" contenteditable="true"> MAKE EVERY DOLLAR COUNT </h2>
+                                        <div class="wprt-lines style-1 custom-3">
+                                            <div class="line-1"></div>
+                                            <div class="line-2"></div>
+                                        </div>
+                                        <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25" style="height:25px"></div>
+                                        <div>
+                                            <p class="margin-bottom-25" id="p10" contenteditable="true">
+                                                The biggest headache every consumer deals with is finding reliable service persons and tradesmen
+                                                to provide  quality service for every dollar spent. Being stuck with terrible service to dealing
+                                                with unreliable workers who hardly show up.  Being a consumer can be a real nightmare.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="margin-bottom-25" id="p11" contenteditable="true">
+                                                This is why we go the extra mile to make sure that you are protected from the harsh realities of faulty
+                                                products and unreliable workers.
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p class="margin-bottom-25" id="p12" contenteditable="true">
+                                                Consumers can now be rest assured of getting the best of both worlds – access to a ready pool of
+                                                accredited, experienced workers and huge savings from consumer goods in form of discounts and
+                                                bonuses.
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        }
+                    </div>
+
+                    <div id="section4">
+                        @*@Html.Raw(Model.Section5)*@
+                        @if (Model != null)
+                        {
+                        @Html.Raw(Model.Section5)
+                        }
+                        else
+                        {
+                        <section class="paddtb80 putyour_bussiness">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h2 class="line-height-normal margin-bottom-10 bold" style="color:#ff9900;" id="h2_4" contenteditable="true"> PUT YOUR BUSINESS/SERVICES TO WORK </h2>
+                                        <div class="wprt-lines style-1 custom-3">
+                                            <div class="line-1"></div>
+                                            <div class="line-2"></div>
+                                        </div>
+                                        <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25" style="height:25px"></div>
+                                        <p class="margin-bottom-25" id="p13" contenteditable="true"> Business owners and local service providers can now take advantage of <span class="webcolor"> Urban Referral Network </span> to reach a wider local audience base, regardless of where they are within Los Angeles County. Our partner businesses gain exclusive access to hundreds of clients within their local community. Member-businesses can also gain business leverage by building upon the first working relationship that Urban Referral Network provides.</p>
+                                        <p class="margin-bottom-25" id="p14" contenteditable="true"> <span class="webcolor"> Urban Referral Network's </span>  platform is open to businesses and services from diverse industries – legal, financial, retail, trade, construction, real estate and so much more.. </p>
+                                        <p class="margin-bottom-25" id="p15" contenteditable="true"> Service providers, skilled workers and artisans on the Urban Referral Network platform enjoy better exposure, higher financial returns and increased client base by building on the first interaction <span class="webcolor"> Urban Referral Network </span>creates.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        }
+                    </div>
+                    <!-- TESTIMONIALS -->
+                    <div id="section5">
+                        @*@Html.Raw(Model.Section6)*@
+                        @if (Model != null)
+                        {
+                        @Html.Raw(Model.Section6)
+                        }
+                        else
+                        {
+                        <section class="wprt-section testiminials" style="background-color:#ff9700;">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                                    </div><!-- /.col-md-12 -->
+                                    <div class="col-md-6">
+                                        <h2 contenteditable="true">OUR PARTNERS</h2>
+                                        <div class="wprt-lines style-1 custom-3">
+                                            <div class="line-1"></div>
+                                            <div class="line-2"></div>
+                                        </div>
+                                        <div class="wprt-spacer" data-desktop="50" data-mobi="40" data-smobi="40"></div>
+                                        <div class="wprt-partner-grid has-outline col-3 gutter-10">
+                                            <div class="partner-wrap clearfix">
+                                                <div class="partner-row clearfix">
+                                                    <div class="partner-item">
+                                                        <div class="inner-item">
+                                                            <a target="_blank" href="#"><img src="~/assets/img/partners/1.png" alt="image" /></a>
+                                                        </div>
+                                                    </div><!-- /.partner-item -->
+                                                    <div class="partner-item">
+                                                        <div class="inner-item">
+                                                            <a target="_blank" href="#"><img src="~/assets/img/partners/2.png" alt="image" /></a>
+                                                        </div>
+                                                    </div><!-- /.partner-item -->
+                                                    <div class="partner-item">
+                                                        <div class="inner-item">
+                                                            <a target="_blank" href="#"><img src="~/assets/img/partners/3.png" alt="image" /></a>
+                                                        </div>
+                                                    </div><!-- /.partner-item -->
+                                                </div>
+                                                <div class="partner-row clearfix">
+                                                    <div class="partner-item">
+                                                        <div class="inner-item">
+                                                            <a target="_blank" href="#"><img src="~/assets/img/partners/4.png" alt="image" /></a>
+                                                        </div>
+                                                    </div><!-- /.partner-item -->
+                                                    <div class="partner-item">
+                                                        <div class="inner-item">
+                                                            <a target="_blank" href="#"><img src="~/assets/img/partners/5.png" alt="image" /></a>
+                                                        </div>
+                                                    </div><!-- /.partner-item -->
+                                                    <div class="partner-item">
+                                                        <div class="inner-item">
+                                                            <a target="_blank" href="#"><img src="~/assets/img/partners/6.png" alt="image" /></a>
+                                                        </div>
+                                                    </div><!-- /.partner-item -->
+                                                </div>
+                                            </div><!-- /.partner-wrap -->
+                                        </div><!-- /.wprt-partner-grid -->
+                                        <div class="wprt-spacer" data-desktop="0" data-mobi="40" data-smobi="40"></div>
+                                    </div><!-- /.col-md-6 -->
+                                    <div class="col-md-6">
+                                        <h2 contenteditable="true">TESTIMONIALS</h2>
+                                        <div class="wprt-lines style-1 custom-3">
+                                            <div class="line-1"></div>
+                                            <div class="line-2"></div>
+                                        </div>
+                                        <div class="wprt-spacer" data-desktop="50" data-mobi="40" data-smobi="40"></div>
+                                        <div class="wprt-testimonials has-outline arrow-style-2 has-arrows arrow60 arrow-light" data-layout="slider" data-column="1" data-column2="1" data-column3="1" data-column4="1" data-gaph="0" data-gapv="0">
+                                            <div id="testimonials-wrap" class="cbp">
+                                                <div class="cbp-item">
+                                                    <div class="customer clearfix">
+                                                        <div class="inner">
+                                                            <div class="image"><img src="~/images/images.jpg" alt="image" /></div>
+                                                            <h4 class="name" contenteditable="true">Isabelle J.</h4>
+                                                            <!--  <div class="position">Architectural Co.</div>-->
+                                                            <blockquote class="whisper" contenteditable="true">As someone who is extremely time conscious, it drives me crazy every time I have to deal with unreliable workers. The first time I hired from Urban Referral Network, the three hire options provided, gave me quick quotes and the provider I chose came early and worked efficiently. Trust me, the time it took to interview the service providers was worth keeping my sanity and is nothing compared to the losses I could incur dealing with unreliable people.</blockquote>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.cbp-item -->
+                                                <div class="cbp-item">
+                                                    <div class="customer clearfix">
+                                                        <div class="inner">
+                                                            <div class="image"><img src="~/images/modern-2446997__340.jpg" alt="image" /></div>
+                                                            <h4 class="name" contenteditable="true">T.M.</h4>
+
+                                                            <blockquote class="whisper" contenteditable="true">After I moved from my old apartment to the current one, I needed to change the wallpaper (and I’m not so good with DIY). I spoke with my neighbor who happened to have hired off the Urban Referral Networkabout twice and she referred me to this place. Service delivery was great, communication was superb and my money was well spent.</blockquote>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.cbp-item -->
+                                                <div class="cbp-item">
+                                                    <div class="customer clearfix">
+                                                        <div class="inner">
+                                                            <div class="image"><img src="~/images/pexels-photo-1036623.jpeg" alt="image" /></div>
+                                                            <h4 class="name" contenteditable="true">Jen.</h4>
+
+                                                            <blockquote class="whisper" contenteditable="true">I have dealt with so many dishonest, lazy and incompetent home repair workers who even had the effrontery to tag themselves ‘experts’ and ‘specialists’. After an episode with a plumber who was incompetent and loud mouthed (imagine the combination!), I decided that I had had enough. I spoke to my friend Laura, who introduced me to Urban Referral Networkand it’s been bliss ever since.</blockquote>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- /.cbp-item -->
+                                            </div><!-- /#service-wrap -->
+                                        </div><!-- /.wprt-service -->
+                                    </div><!-- /.col-md-6 -->
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                                    </div><!-- /.col-md-12 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </section>
+                        }
+                    </div><!-- /.page-content -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model != null && Model.FooterSection1 != "undefined" && Model.FooterSection1 != null)
+{
+<div id="section6">
+    @Html.Raw(Model.FooterSection1)
+</div>
+        }
+        else
+        {
+<div id="section6">
+    <footer id="footer">
+        <div id="footer-widgets" class="container style-1">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="widget widget_text">
+                        <h2 class="widget-title" contenteditable="true"><span>ABOUT US</span></h2>
+                        <div class="textwidget">
+                            <img src="~/images/urban-logo-Copy.jpg" width="100" height="" alt="image" class="margin-top-5 margin-bottom-5">
+                            <p contenteditable="true">
+                                The<span style="color:#ff9800;"> URBANetwork </span> founded in 1988 by a
+                                coalition of block clubs and community
+                                organizations to improve the quality of life
+                                in urban communities, created the Urban
+                                Referral Network in 2016 as a means to
+                                improve the quality of services and goods
+                                provided to urban consumers.
+                            </p>
+                            <div class="widget widget_links">
+
+                                <ul class="wprt-links clearfix col2">
+                                    <li class="style-2" contenteditable="true"><a href="~/HTML/Terms" style="padding-right:15px;"> Terms & Condtions </a><a href="~/HTML/Privacy"> Privacy Policy </a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget widget_links">
+                        <h2 class="widget-title" contenteditable="true"><span>COMPANY LINKS</span></h2>
+                        <ul class="wprt-links clearfix col2" contenteditable="true">
+                            <li class="style-2"><a href="~/HTML/about_us"> Phone Consultation </a></li>
+                            <li class="style-2"><a href="~/HTML/about_us"> Help Desk </a></li>
+                            <li class="style-2"><a href="~/HTML/about_us"> Senior Care </a></li>
+                        </ul>
+
+                        <form class="form-group input-group" style="margin-top: 20px;">
+                            <input type="text" class="form-control">
+                            <div class="input-group-btn">
+                                <button class="btn" type="button" contenteditable="true">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget widget_information">
+                        <h2 class="widget-title" contenteditable="true"><span>CONTACT INFO</span></h2>
+                        <ul class="style-2" contenteditable="true">
+                            <li class="address clearfix">
+                                <span class="hl">Address:</span>
+                                <span class="text">
+                                    5349 Crenshaw Boulevard, Suite 101
+                                    Los Angeles, CA  90043
+                                </span>
+                            </li>
+                            <li class="phone clearfix">
+                                <span class="hl">Phone:</span>
+                                <span class="text">+1 (323) 290-4089</span>
+                            </li>
+                            <li class="email clearfix">
+                                <span class="hl">E-mail:</span>
+                                <span class="text">contact@construction.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="widget widget_spacer">
+                        <div class="wprt-spacer clearfix" data-desktop="10" data-mobi="10" data-smobi="10" style="height:10px"></div>
+                    </div>
+                    <div class="widget widget_socials">
+                        <div class="socials">
+                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                            <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+        }
+<!-- copyright -->
+<!-- Bottom -->
+        @if (Model != null && Model.FooterSection2 != null && Model.FooterSection2 != "undefined")
+        {
+<div id="section7">
+    @Html.Raw(Model.FooterSection2)
+</div>
+        }
+        else
+        {
+<div id="section7">
+    <div id="bottom" class="clearfix style-1">
+        <div id="bottom-bar-inner" class="wprt-container">
+            <div class="bottom-bar-inner-wrap">
+
+                <div class="bottom-bar-content" contenteditable="true">
+                    Copyright &copy; 2018 URBAN Network.
+                    <!-- /#copyright -->
+                </div><!-- /.bottom-bar-content -->
+                <div class="bottom-bar-menu" contenteditable="true">
+                    Powered by YES IT Labs
+                </div><!-- /.bottom-bar-menu -->
+            </div>
+        </div>
+    </div>
+</div>
+        }
+<script src="~/assets/js/jquery.min.js"></script>
+<script src="~/assets/js/bootstrap.min.js"></script>
+<script src="~/assets/js/flexslider.js"></script>
+<script src="~/assets/js/vegas.js"></script>
+<script src="~/assets/js/cube.portfolio.js"></script>
+<script src="~/assets/js/main.js"></script>
+
+
+@*<script src="~/assets/js/jquery.min.js"></script>
+<script src="~/assets/js/bootstrap.min.js"></script>
+<script src="~/assets/js/animsition.js"></script>
+<script src="~/assets/js/plugins.js"></script>
+<script src="~/assets/js/countTo.js"></script>
+<script src="~/assets/js/fitText.js"></script>
+<script src="~/assets/js/flexslider.js"></script>
+<script src="~/assets/js/vegas.js"></script>
+<script src="~/assets/js/cube.portfolio.js"></script>
+<script src="~/assets/js/main.js"></script>*@
+<!-- End copyright -->
+<!-- End copyright -->

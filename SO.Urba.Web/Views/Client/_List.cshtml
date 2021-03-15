@@ -1,0 +1,78 @@
+﻿@model List<object>
+@using SO.Urba.Models.ValueObjects
+@using SO.Utility.Extensions;
+@using SO.Urba.DbContexts;
+@using SO.Urba.Managers;
+@{
+
+    ViewBag.Title = "_List";
+
+    var result = Model.convertTo<ClientVo>();
+
+}
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Client Name
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Fee Has Paid
+        </th>
+        <th>
+            Organization
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in result)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.clientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contactInfo.fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.contactInfo.fullAddress)
+            </td>
+            <td>
+                @Html.Label(item.hasPaidFee == null ? "N/A" : item.hasPaidFee.Value.ToString())
+            </td>
+            <td>
+                @{
+        var ttip = "";
+        foreach (var o in item.clientOrganizationLookupses.Select(n => n.organization.name).ToList())
+        {
+            ttip += o + "\n";
+        }
+                }
+                @Html.DisplayFor(modelItem => item.clientOrganizationLookupses.FirstOrDefault().organization.name)
+                @if (item.clientOrganizationLookupses.Count() > 1)
+                {
+                    <span title="@ttip">...</span>
+                }
+            </td>
+            <td style="width:184px;">
+                @if (CurrentMember.hasRoleOf("admin"))
+                {
+                    <a href="@Url.Action("Edit", new { id = item.clientId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+                }
+                <a href="@Url.Action("Details", new { id = item.clientId })" class="btn" title="Details"><i class="icon-list"></i></a>
+                @if (CurrentMember.hasRoleOf("admin"))
+                {
+                    <a href="@Url.Action("Delete", new { id = item.clientId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+                }
+                <a href="@Url.Action("Index", "ReferralRecord", new { id = item.clientId, companyCategoryTypeId = 0 })" class="btn" title="Referral"><i class="icon-random"></i></a>
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,422 @@
+﻿@model HomePageContent
+
+
+<div id="page" class="clearfix">
+    <!--about banner section-1-->
+    <div id="section1">
+        @if (Model != null && Model.Section1 != null)
+        {
+            @Html.Raw(Model.Section1)
+        }
+        else
+        {
+            <div class="text-center banner-back smallbanner">
+                <h1 class="bold" contenteditable="true"> BLOG </h1>
+            </div>
+        }
+    </div>
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap" class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div id="site-content" class="site-content clearfix" style="width:100%;">
+                        <div id="inner-content" class="inner-content-wrap">
+                            <article class="hentry mart0">
+                                <div class="post-media clearfix">
+                                    <a href="#"><img src="~/images/pexels-photo-919436.jpg" alt="image"></a>
+                                </div><!-- /.post-media -->
+
+                                <div id="section2">
+                                    @if (Model != null && Model.Section2 != null)
+                                    {
+                                        @Html.Raw(Model.Section2)
+                                    }
+                                    else
+                                    {
+                                        <div class="post-content-wrap">
+                                            <h2 class="post-title" contenteditable="true">
+                                                <span class="post-title-inner">
+                                                    <a href="#">HOME VALUE</a>
+                                                </span>
+                                            </h2><!-- /.post-title -->
+
+                                            <div class="post-meta ~/style-2">
+                                                <div class="post-meta-content">
+                                                    <div class="post-meta-content-inner" contenteditable="true">
+                                                        <span class="post-date item">
+                                                            <span class="inner"><span class="entry-date">December 30, 2016</span></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div><!-- /.post-meta -->
+
+                                            <div class="post-content post-excerpt" contenteditable="true">
+                                                <p><i>Roof Maintenance</i></p>
+                                                <p>
+                                                    It’s a major expense to install a new roof.  The costs of installing a new roof can be a major expense for any home. The cost can be upwards amount of $12,000. Here are a few tips to help keep the cost of roofing down.
+                                                </p>
+                                            </div><!-- /.post-excerpt -->
+                                            <!--details blog content-->
+
+                                            <div id="blog_2" contenteditable="true">
+
+                                                <p><span>Perform regular roof inspections : </span>: After each season change, inspect and watch for loose shingles, animal activity, leaks, water damage, algae growth, rust, wood rot and missing shingles. </p>
+                                                <p>
+                                                    <span>  Trim your trees:</span> Trim trees near hanging near your roof. Limbs that break can cause serious damage.
+                                                </p>
+                                                <p>
+                                                    <span>Remove debris from your roof : </span>Excess Debris, if not removed, can cause algae growth and wood rot. Such as leaves, small limbs, and sticks can damage your roof and encourage algae growth and even wood rot. Keep it clean with a telescoping pole or a roof leak rake.
+                                                </p>
+                                                <p>
+                                                    <span>Inspect and repair seals, joints, and flashing : </span>: Look for leaks, bending, punctures in your or roofs which are the most common signs of future roofing problems.
+                                                </p>
+                                                <p>
+                                                    <span> Repair small leaks quickly : </span>: Repair roof leaks as soon as possible before it gets any worse and causes you exorbitant amounts of money.
+                                                </p>
+                                                <p>
+                                                    <span> Pay attention to warning signs : </span>Don’t ignore signs like leaks, shingles on the ground and rats in your attic.
+                                                </p>
+                                                <p>
+                                                    <span> Clean your gutters : </span>It keeps moisture off of your roof that cause decay and damage.
+                                                </p>
+                                                <p>
+                                                    <span> Don’t allow pests to live in your roof : </span>Termites and other wild animals can eat away at your core and cause serious damage.
+                                                </p>
+                                                <p>
+                                                    <span> Clear snow if there’s danger of collapse : </span>Snow accumulation can weigh your roof down and cause it to collapse.
+                                                </p>
+                                                <p>
+                                                    <span> Install efficient attic insulation and ventilation : </span>Good insulation can keep your roofing from warping.
+                                                </p>
+                                                <p>
+                                                    <span> Don’t make walking on your roof a habit : </span>: You can easily cause damage to tiles and shingles when you walk on them.
+                                                </p>
+                                                <p>
+                                                    <span> Avoid power washing your roof : </span>Just remove debris but do not cause damage to the construction by power washing and loosening roofing tiles and shingles
+                                                </p>
+
+                                            </div><!--end of blog content-->
+
+
+
+
+                                            <div class="post-read-more">
+
+
+                                                <div class="post-share post-link-share">
+                                                    <div class="post-meta-share-text">Share:</div>
+                                                    <div class="post-meta-share-icon">
+                                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    </div>
+                                                </div><!-- /.post-share -->
+                                            </div><!-- /.post-read-more -->
+                                        </div><!-- /.post-content-wrap -->
+                                    }
+                                </div>
+
+                            </article>
+
+
+                            <div id="section3">
+                                @if (Model != null && Model.Section3 != null)
+                                {
+                                    @Html.Raw(Model.Section3)
+                                }
+                                else
+                                {
+                                    <div id="respond" class="comment-respond">
+                                        <h3 id="reply-title" class="comment-reply-title" contenteditable="true">Leave a Reply</h3>
+                                        <form action="#" method="post" id="commentform" class="comment-form">
+                                            <fieldset class="message-wrap">
+                                                <textarea id="comment-message" name="comment" rows="8" tabindex="4" placeholder="Message"></textarea>
+                                            </fieldset>
+                                            <fieldset class="name-wrap">
+                                                <input type="text" id="author" class="tb-my-input" name="author" tabindex="1" placeholder="Name" value="" size="32" aria-required="true">
+                                            </fieldset>
+                                            <fieldset class="email-wrap">
+                                                <input type="text" id="email" class="tb-my-input" name="email" tabindex="2" placeholder="E-mail" value="" size="32" aria-required="true">
+                                            </fieldset>
+                                            <p class="form-submit" contenteditable="true">
+                                                <input name="submit" type="submit" id="comment-reply" class="submit" value="Post Comment">
+                                                <input type="hidden" name="comment_post_ID" value="100" id="comment_post_ID">
+                                                <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                                            </p>
+                                        </form>
+                                    </div><!-- #respond -->
+                                }
+                            </div><!-- #respond -->
+
+                        </div><!-- /.inner-content-wrap -->
+                    </div><!-- -->
+                </div><!-- /col-md-8 -->
+                <div class="col-sm-4">
+                    <div id="sidebar" style="width:100%;">
+                        <div id="inner-sidebar" class="inner-content-wrap">
+                            <div class="widget widget_search">
+                                <form role="search" method="get" action="#" class="search-form ~/style-1">
+                                    <input type="search" class="search-field" placeholder="Search" value="" name="s" title="Search for:">
+                                    <button type="submit" class="search-submit" title="Search">Search</button>
+                                </form>
+                            </div>
+                            <div id="section4">
+                                @if (Model != null && Model.Section4 != null)
+                                {
+                                    @Html.Raw(Model.Section4)
+                                }
+                                else
+                                {
+                                    <div class="widget widget_categories" contenteditable="true">
+                                        <h2 class="widget-title"><span>CATEGORIES</span></h2>
+                                        <ul>
+                                            <li class="cat-item cat-item-3"><a href="#">Building</a> (2)</li>
+                                            <li class="cat-item cat-item-6"><a href="#">Ecobuilding</a> (4)</li>
+                                            <li class="cat-item cat-item-4"><a href="#">House</a> (4)</li>
+                                            <li class="cat-item cat-item-5"><a href="#">Office</a> (1)</li>
+                                            <li class="cat-item cat-item-10"><a href="#">Tower</a> (3)</li>
+                                        </ul>
+                                    </div>
+
+                                    <div id="widget_news_post-3" class="widget widget_recent_news">
+                                        <h2 class="widget-title" contenteditable="true"><span>LASTEST NEWS</span></h2>
+                                        <ul class="recent-news clearfix">
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">The Future of Buildings</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+
+                                            <li class="clearfix">
+                                                <div class="thumb">
+                                                    <img width="150" height="150" src="~/images/news.jpg" alt="image">
+                                                </div><!-- /.thumb -->
+
+                                                <div class="texts" contenteditable="true">
+                                                    <h3><a href="#">Best Treehouse Plans</a></h3>
+                                                    <span class="post-date"><span class="entry-date">December 30, 2016</span></span>
+                                                </div><!-- /.texts -->
+                                            </li>
+                                        </ul>
+                                    </div>
+                                }
+                            </div>
+                        </div><!-- /#inner-sidebar -->
+                    </div><!-- /#sidebar -->
+                </div><!-- /col-md-4 -->
+            </div><!--row-->
+        </div><!-- /#content-wrap -->
+    </div><!-- /#main-content -->
+    <!--footer section-6-->
+    <div id="section5">
+        @if (Model != null && Model.FooterSection1 != null)
+        {
+            @Html.Raw(Model.FooterSection1)
+        }
+        else
+        {
+            <footer id="footer">
+                <div id="footer-widgets" class="container style-1">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="widget widget_text">
+                                <h2 class="widget-title" contenteditable="true"><span>ABOUT US</span></h2>
+                                <div class="textwidget">
+                                    <img src="~/images/urban-logo-Copy.jpg" width="100" height="" alt="image" class="margin-top-5 margin-bottom-5">
+                                    <p contenteditable="true">
+                                        The<span style="color:#ff9800;"> URBANetwork </span> founded in 1988 by a
+                                        coalition of block clubs and community
+                                        organizations to improve the quality of life
+                                        in urban communities, created the Urban
+                                        Referral Network in 2016 as a means to
+                                        improve the quality of services and goods
+                                        provided to urban consumers.
+                                    </p>
+                                    <div class="widget widget_links">
+
+                                        <ul class="wprt-links clearfix col2" contenteditable="true">
+                                            <li class="style-2"><a href="~/HTML/Terms" style="padding-right:15px;"> Terms & Condtions </a><a href="~/HTML/Privacy"> Privacy Policy </a></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="widget widget_links">
+                                <h2 class="widget-title" contenteditable="true"><span>COMPANY LINKS</span></h2>
+                                <ul class="wprt-links clearfix col2" contenteditable="true">
+                                    <li class="style-2"><a href="~/HTML/about_us"> Phone Consultation </a></li>
+                                    <li class="style-2"><a href="~/HTML/about_us"> Help Desk </a></li>
+                                    <li class="style-2"><a href="~/HTML/about_us"> Senior Care </a></li>
+                                </ul>
+
+                                <form class="form-group input-group" style="margin-top: 20px;">
+                                    <input type="text" class="form-control">
+                                    <div class="input-group-btn">
+                                        <button class="btn" type="submit">Subscribe</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="widget widget_information">
+                                <h2 class="widget-title" contenteditable="true"><span>CONTACT INFO</span></h2>
+                                <ul class="style-2" contenteditable="true">
+                                    <li class="address clearfix">
+                                        <span class="hl">Address:</span>
+                                        <span class="text">
+                                            5349 Crenshaw Boulevard, Suite 101
+                                            Los Angeles, CA  90043
+                                        </span>
+                                    </li>
+                                    <li class="phone clearfix">
+                                        <span class="hl">Phone:</span>
+                                        <span class="text">+1 (323) 290-4089</span>
+                                    </li>
+                                    <li class="email clearfix">
+                                        <span class="hl">E-mail:</span>
+                                        <span class="text">contact@construction.com</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="widget widget_spacer">
+                                <div class="wprt-spacer clearfix" data-desktop="10" data-mobi="10" data-smobi="10" style="height:10px"></div>
+                            </div>
+                            <div class="widget widget_socials">
+                                <div class="socials">
+                                    <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                                    <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        }
+    </div>
+    <!-- Bottom -->
+    <div id="section6">
+        @if (Model != null && Model.FooterSection2 != null)
+        {
+            @Html.Raw(Model.FooterSection2)
+        }
+        else
+        {
+            <div id="bottom" class="clearfix style-1">
+                <div id="bottom-bar-inner" class="wprt-container">
+                    <div class="bottom-bar-inner-wrap">
+
+                        <div class="bottom-bar-content" contenteditable="true">
+                            Copyright &copy; 2018 URBAN Network.
+                            <!-- /#copyright -->
+                        </div><!-- /.bottom-bar-content -->
+                        <div class="bottom-bar-menu" contenteditable="true">
+                            Powered by YES IT Labs
+                        </div><!-- /.bottom-bar-menu -->
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+</div>

@@ -1,0 +1,95 @@
+﻿@model List<object>
+@using SO.Urba.Models.ValueObjects
+@using SO.Utility.Extensions;
+@{
+
+    ViewBag.Title = "_List";
+
+    var result = Model.convertTo<ReferralVo>();
+
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Referral Id
+        </th>
+        <th>
+            Contact Membership Id
+        </th>
+        <th>
+            CompanyId
+        </th>
+        <th>
+            Company Category TypeId
+        </th>
+        <th>
+            ReferralDate
+        </th>
+        <th>
+            Quote
+        </th>
+        <th>
+            Accepted
+        </th>
+        <th>
+            Final Quote
+        </th>
+        <th>
+            Finish Date
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Survey Comment
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in result) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.referralId)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.contactMembershipId)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.companyId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.companyCategoryTypeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.referralDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accepted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.finalQuote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.finishDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.surveyComment)
+        </td>
+        <td style="width:150px;">
+            <a href="@Url.Action("Edit", new { id = item.referralId })" class="btn" title="Edit"><i class="icon-edit"></i></a>
+            <a href="@Url.Action("Details", new { id = item.referralId })" class="btn" title="Details"><i class="icon-list"></i></a>
+            <a href="@Url.Action("Delete", new { id = item.referralId })" class="btn" title="Delete"><i class="icon-trash"></i></a>
+        </td>
+    </tr>
+}
+
+</table>

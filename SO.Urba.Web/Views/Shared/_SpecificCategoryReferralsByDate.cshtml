@@ -1,0 +1,30 @@
+﻿@model SO.Urba.Manager.Models.ViewModels.SpecificCategoryReferralsByDateVM
+@{
+    String now1 = DateTime.Now.ToString("MM/dd/yyyy");
+    String lastYear1 = DateTime.Now.AddYears(-1).ToString("MM/dd/yyyy");
+}
+
+<div class="span12" style="color: red">
+    <br />
+    <b>
+        @Html.ValidationSummary()
+    </b>
+</div>
+
+<div id="categoryForm" style="position:relative;">
+    <div class="form-control">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.DropDownListFor(m => m.categoryName, Model.allCategoryNames, "Please select a category")
+    </div>
+    <div>
+        <span>From:</span>
+        <input type="datetime" id="fDate" name="fDate" value="@lastYear1" class="form-control" style="width:75px;" />
+        @Html.ValidationMessageFor(m => m.fDate, "", new { @class = "text-error" })
+        <br /> <br />
+    </div>
+    <div>
+        <span>To:</span>
+        <input type="datetime" id="tDate" name="tDate" value="@now1" class="form-control" style="width:75px; margin-left:20px;" />
+        @Html.ValidationMessageFor(m => m.tDate, "", new { @class = "text-error" })
+    </div>
+</div>

@@ -1,0 +1,442 @@
+﻿@model HomePageContent
+@{
+    ViewBag.Title = "contact_us";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title> Urban Network </title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- Theme Style -->
+    <link rel="stylesheet" type="text/css" href="~/style.css">
+    <!--Toastr Notifications -->
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <!-- Favicon and touch icons  -->
+    <link rel="shortcut icon" href="~/assets/icon/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="~/assets/icon/apple-touch-icon-158-precomposed.png">
+    <!--navigation bar link-->
+    <style>
+        .contactform .form-control {
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body class="front-page no-sidebar site-layout-full-width header-style-5 menu-has-search menu-has-cart header-sticky">
+
+    <!--navbar-->  <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="" href="#"><img src="~/images/logo.png" class="img-responsive" alt="logo" /></a>
+                    </div>
+
+                </div>
+                <div class="col-sm-10">
+                    <div class="collapse navbar-collapse" id="myNavbar">
+
+                        <!--social icon-->        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="nav navbar-nav navbar-right social-icon">
+                                    <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-linkedin"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-rss"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-youtube"></span></a></li>
+                                    <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <!--social icon-->
+                                <ul class="nav navbar-nav navbar-right menu-margin">
+                                    <li><a href="~/HTML/index">HOME</a></li>
+                                    <li><a href="~/HTML/our_services">SERVICES</a></li>
+                                    <li><a href="~/HTML/about_us">ABOUT US</a></li>
+                                    <li><a href="~/HTML/how_it_work">HOW IT WORKS</a></li>
+                                    <li><a href="~/HTML/blog">BLOG</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">REVIEWS</a></li>
+                                    <li><a href="~/HTML/contact_us" style="border:0;padding-right:0;">CONTACT US</a></li>
+                                    <li><button class="btn" onclick="location.href='@Url.Action("Login","Account",  new { target="_blank" })'"><span class="fa fa-user-circle-o">&nbsp;&nbsp; </span>LOGIN / REGISTER</button></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="wrapper" class="animsition" style="animation-duration: 1500ms; opacity: 1;">
+        <div id="page" class="clearfix">
+            <div id="section1">
+                @if (Model != null && Model.Section1 != null)
+                {
+                    @Html.Raw(Model.Section1)
+                }
+                else
+                {
+                    <div class="text-center cont-banner smallbanner">
+                        <h1 class="bold" contenteditable="true"> CONTACT US </h1>
+                    </div>
+                }
+            </div>
+
+            <div style="width:100%; height:1px; background-color:#fff;"></div>
+
+            <div id="section2">
+                @if (Model != null && Model.Section2 != null)
+                {
+                    @Html.Raw(Model.Section2)
+                }
+                else
+                {
+
+                    <div class="section-5">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-lg-3 p-tb20 ">
+                                    <div class="wt-icon-box-wraper left  bdr-1 bdr-gray-dark p-lr10 clearfix ">
+                                        <div class="icon-md text-primary">
+                                            <img src="~/images/map.png" class="img-responsive" alt="mobile">
+                                        </div>
+                                        <div class="icon-content">
+                                            <h6 class="fontf text-uppercase m-b0" contenteditable="true"><b> ADDRESS </b></h6>
+                                            <p class="m-b0" contenteditable="true">
+                                                5349 Crenshaw Boulevard, Suite 101
+                                                Los Angeles, CA  90043
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-3 p-tb20 ">
+                                    <div class="wt-icon-box-wraper left  bdr-1 bdr-gray-dark p-lr10 clearfix ">
+                                        <div class="icon-md text-primary">
+                                            <img src="~/images/mobile.png" class="img-responsive" alt="mobile">
+                                        </div>
+                                        <div class="icon-content" contenteditable="true">
+                                            <h6 class="fontf text-uppercase m-b0"><b> Phone </b></h6>
+                                            <p class="m-b0">+1(323)290-4089</p>
+                                            <p class="m-b0">+1(323)290-4089</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-sm-6 col-lg-3 p-tb20 ">
+                                    <div class="wt-icon-box-wraper left  bdr-1 bdr-gray-dark p-lr10 clearfix ">
+                                        <div class="icon-md text-primary">
+                                            <img src="~/images/printer.png" alt="printer" class="img-responsive">
+                                        </div>
+                                        <div class="icon-content" contenteditable="true">
+                                            <h6 class="fontf text-uppercase m-b0"><b> FAX </b></h6>
+                                            <p class="m-b0">FAX : (123)123-4567 </p>
+                                            <p class="m-b0">FAX : (123)123-4567 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-lg-3 p-tb20 ">
+                                    <div class="wt-icon-box-wraper left  bdr-1 bdr-gray-dark p-lr10 clearfix ">
+                                        <div class="icon-md text-primary">
+                                            <img src="~/images/email.png" class="img-responsive" alt="email">
+                                        </div>
+                                        <div class="icon-content" contenteditable="true">
+                                            <h6 class="fontf text-uppercase m-b0"><b>Email </b></h6>
+                                            <p class="m-b0">info@demo.com</p>
+                                            <p class="m-b0">info@demo1234.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="width:100%; height:1px; background-color:#fff;"></div>
+
+                }
+            </div>
+            <!--section-3-->
+            <div id="section3">
+                @if (Model != null && Model.Section3 != null)
+                {
+                    @Html.Raw(Model.Section3)
+                }
+                else
+                {
+
+                    <div class="callform-img">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-6 text-center map">
+                                    <h2 class="bold" contenteditable="true">LOCATION DETAILS</h2>
+
+                                    <div class="wprt-spacer" data-desktop="50" data-mobi="45" data-smobi="20" style="height:55px"></div>
+
+                                    <iframe src="https://maps.google.co.uk/maps?f=q&source=s_q&hl=en&geocode=&q=15+Springfield+Way,+Hythe,+CT21+5SH&aq=t&sll=52.8382,-2.327815&sspn=8.047465,13.666992&ie=UTF8&hq=&hnear=15+Springfield+Way,+Hythe+CT21+5SH,+United+Kingdom&t=m&z=14&ll=51.077429,1.121722&output=embed"></iframe>
+
+                                </div>
+                                @*Contact Form start -----------------------------------------------------------------------*@
+                                <div class="col-sm-6 contactform">
+                                    <form method="post" id="idFormContact">
+                                        <h2 class="text-center bold" contenteditable="true">REQUEST SERVICE</h2>
+                                        <h4 class="text-center" contenteditable="true">Our advisers are here to help you</h4>
+
+                                        <div class="col-sm-6 form-group">
+                                            <input type="text" class="form-control" required="" placeholder="First Name" name="firstname">
+                                        </div>
+                                        <div class="col-sm-6 form-group">
+                                            <input type="text" class="form-control" required="" placeholder="Last Name" name="lastname">
+                                        </div>
+
+                                        <div class="col-sm-12 form-group">
+                                            <input type="text" class="form-control" name="address" placeholder="Email Address">
+                                        </div>
+
+                                        <div class="col-sm-6 ">
+                                            <input type="text" class="form-control" name="City" placeholder="City">
+                                        </div>
+
+                                        <div class="col-sm-6 ">
+                                            <input type="text" class="form-control" name="State" placeholder="State">
+                                        </div>
+
+                                        <div class="col-sm-6 ">
+                                            <input type="text" class="form-control" name="Zip" placeholder="Zip">
+                                        </div>
+
+
+                                        <div class="col-sm-6">
+                                            <input type="tel" class="form-control" name="telephone" placeholder="Phone Number">
+                                        </div>
+
+
+                                        <div class="col-sm-12 ">
+                                            <select name="select" class="form-control">
+                                                <option value="null">Select</option>
+                                                <option value="00">●	Information</option>
+                                                <option value="01">●	Service</option>
+                                                <option value="02">●	Phone Consultation</option>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="col-sm-12 form-group">
+                                            <textarea class="form-control" rows="4" name="Message" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="form-group text-right">
+                                            <input type="checkbox" class="form-inline" required=""><span class="padr15 black" style="font-size:14px;" contenteditable="true"> I accept URN Terms &amp; Condtions</span>
+                                        </div>
+                                        <div class="col-sm-12 form-group">
+                                            <button type="button" class="btn form-control" value="submit" contenteditable="true">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                @*Contact Form finish -----------------------------------------------------------------------*@
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
+
+            <div id="section6">
+                @if (Model != null && Model.FooterSection1 != null)
+                {
+                    @Html.Raw(Model.FooterSection1)
+                }
+                else
+                {
+                    <footer id="footer">
+                        <div id="footer-widgets" class="container style-1">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="widget widget_text">
+                                        <h2 class="widget-title" contenteditable="true"><span>ABOUT US</span></h2>
+                                        <div class="textwidget">
+                                            <img src="~/images/urban-logo-Copy.jpg" width="100" height="" alt="image" class="margin-top-5 margin-bottom-5">
+                                            <p contenteditable="true">
+                                                The<span style="color:#ff9800;"> URBANetwork </span> founded in 1988 by a
+                                                coalition of block clubs and community
+                                                organizations to improve the quality of life
+                                                in urban communities, created the Urban
+                                                Referral Network in 2016 as a means to
+                                                improve the quality of services and goods
+                                                provided to urban consumers.
+                                            </p>
+                                            <div class="widget widget_links">
+
+                                                <ul class="wprt-links clearfix col2" contenteditable="true">
+                                                    <li class="style-2"><a href="~/HTML/Terms" style="padding-right:15px;"> Terms & Condtions </a><a href="~/HTML/Privacy"> Privacy Policy </a></li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="widget widget_links">
+                                        <h2 class="widget-title" contenteditable="true"><span>COMPANY LINKS</span></h2>
+                                        <ul class="wprt-links clearfix col2" contenteditable="true">
+                                            <li class="style-2"><a href="~/HTML/about_us"> Phone Consultation </a></li>
+                                            <li class="style-2"><a href="~/HTML/about_us"> Help Desk </a></li>
+                                            <li class="style-2"><a href="~/HTML/about_us"> Senior Care </a></li>
+                                        </ul>
+
+                                        <form class="form-group input-group" style="margin-top: 20px;">
+                                            <input type="text" class="form-control">
+                                            <div class="input-group-btn">
+                                                <button class="btn" type="submit">Subscribe</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="widget widget_information">
+                                        <h2 class="widget-title" contenteditable="true"><span>CONTACT INFO</span></h2>
+                                        <ul class="style-2" contenteditable="true">
+                                            <li class="address clearfix">
+                                                <span class="hl">Address:</span>
+                                                <span class="text">
+                                                    5349 Crenshaw Boulevard, Suite 101,
+                                                    Los Angeles, CA  90043
+                                                </span>
+                                            </li>
+                                            <li class="phone clearfix">
+                                                <span class="hl">Phone:</span>
+                                                <span class="text">+1 (323) 290-4089</span>
+                                            </li>
+                                            <li class="email clearfix">
+                                                <span class="hl">E-mail:</span>
+                                                <span class="text">contact@construction.com</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="widget widget_spacer">
+                                        <div class="wprt-spacer clearfix" data-desktop="10" data-mobi="10" data-smobi="10" style="height:10px"></div>
+                                    </div>
+                                    <div class="widget widget_socials">
+                                        <div class="socials">
+                                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                            <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                            <a target="_blank" href="#"><i class="fa fa-instagram"></i></a>
+                                            <a target="_blank" href="#"><i class="fa fa-linkedin"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                }
+            </div>
+            <!-- Bottom -->
+            <div id="section7">
+                @if (Model != null && Model.FooterSection2 != null)
+                {
+                    @Html.Raw(Model.FooterSection2 )
+                }
+                else
+                {
+                    <div id="bottom" class="clearfix style-1">
+                        <div id="bottom-bar-inner" class="wprt-container">
+                            <div class="bottom-bar-inner-wrap">
+
+                                <div class="bottom-bar-content" contenteditable="true">
+                                    Copyright &copy; 2018 URBAN Network.
+                                    <!-- /#copyright -->
+                                </div><!-- /.bottom-bar-content -->
+                                <div class="bottom-bar-menu" contenteditable="true">
+                                    Powered by YES IT Labs
+                                </div><!-- /.bottom-bar-menu -->
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <!-- End copyright -->
+        </div>
+    </div>
+
+    <a id="scroll-top"></a>
+    <!-- BackToTop Button -->
+    <!-- Javascript -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/animsition.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/countTo.js"></script>
+    <script src="~/assets/js/fitText.js"></script>
+    <script src="~/assets/js/flexslider.js"></script>
+    <script src="~/assets/js/vegas.js"></script>
+    <script src="~/assets/js/cube.portfolio.js"></script>
+    <script src="~/assets/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('div[contenteditable="true"]').attr('contenteditable', false);
+            $('p[contenteditable="true"]').attr('contenteditable', false);
+            $('h1[contenteditable="true"]').attr('contenteditable', false);
+            $('h2[contenteditable="true"]').attr('contenteditable', false);
+            $('h3[contenteditable="true"]').attr('contenteditable', false);
+            $('ul[contenteditable="true"]').attr('contenteditable', false);
+            $('li[contenteditable="true"]').attr('contenteditable', false);//blockquote
+            $('h4[contenteditable="true"]').attr('contenteditable', false);
+            $('h6[contenteditable="true"]').attr('contenteditable', false);
+            $('a[contenteditable="true"]').attr('contenteditable', false);
+        });
+
+    </script>
+
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function () {
+            $("#idFormContact").on("submit", function (e) {
+                e.preventDefault();
+                //call external service
+                var url = "/HTML/SendNewMessage";
+                var formdata = (window.FormData) ? new FormData(this) : null;
+                var fdata = (formdata !== null) ? formdata : $form.serialize();
+                $("#idSubmitMvt").attr("disabled", true);
+
+                $("#idNotifSuccess").hide();
+                $("#idNotifError").hide();
+                //get authorization keys.
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: fdata,
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                        if (res == true) {
+                            toastr.success('Email has been sent successfully!', { timeout: 4000, closeButton: true });
+                        }
+                        else {
+                            toastr.error('Email failed to send, please enter a valid email', { timeout: 4000, closeButton: true });
+                        }
+                    }
+                });
+
+            });
+        });
+    </script>
+</body>
+</html>
+

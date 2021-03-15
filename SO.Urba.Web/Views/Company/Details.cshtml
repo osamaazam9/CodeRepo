@@ -1,0 +1,129 @@
+﻿@model SO.Urba.Models.ValueObjects.CompanyVo
+@using SO.Urba.Managers
+
+@{
+    ViewBag.Title = "Provider Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+<style>
+    .fillIn {
+        width: 95%;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="row">
+            <div class="span3">
+                Company Name
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.companyName)" readonly="true">
+            </div>
+            <div class="span3">
+                Contact Name
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.fullname)" readonly="true">
+            </div>
+            <div class="span2">
+                Company ID
+                <input type="text" class="form-control" style="width:97%" value="@Html.DisplayFor(model => model.companyId)" readonly="true">
+            </div>
+
+            <div class="span1">
+                Active
+                <div>
+                    @Html.DisplayFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span9">
+                Categories
+                @{
+    string categories = "";
+    CompanyCategoryTypeManager MRTM = new CompanyCategoryTypeManager();
+    foreach (var category in Model.companyCategoryLookupses)
+    {
+        categories += (MRTM.get((int)category.companyCategoryTypeId).name);
+        categories += ", ";
+    }
+    if (categories.Length > 2)
+    { categories = categories.Substring(0, categories.Length - 2); }
+    <input type="text" class="form-control" style="width:98%" value="@categories" readonly="true">
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                License
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.license)" readonly="true">
+            </div>
+            <div class="span3">
+                Agreement Signed
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.agreementSigned)" readonly="true">
+            </div>
+            <div class="span3">
+                Bonded
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.bonded)" readonly="true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                E-Mail
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.email)" readonly="true">
+            </div>
+            <div class="span6">
+                Address
+                <input type="text" class="form-control" style="width:97%" value="@Model.contactInfo.fullAddress" readonly="true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Fax
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.fax)" readonly="true">
+            </div>
+            <div class="span2">
+                Cell Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.cell)" readonly="true">
+            </div>
+            <div class="span2">
+                Home Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.homePhone)" readonly="true">
+            </div>
+            <div class="span3">
+                Work Phone
+                <input type="text" class="form-control fillIn" value="@Html.DisplayFor(model => model.contactInfo.workPhone)" readonly="true">
+            </div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                Created Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.created)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.modified)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified By
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.contactInfo.modifiedBy)" readonly="true">
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="span9">
+        <a href="@Url.Action("Index")" class="btn">Back to List</a>
+        @if (CurrentMember.hasRoleOf("admin"))
+        {
+            <a href="@Url.Action("Edit", new { id = Model.companyId })" class="btn pull-right btn-info">Edit</a>
+        }
+    </div>
+</div>

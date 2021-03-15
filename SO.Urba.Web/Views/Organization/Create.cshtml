@@ -1,0 +1,102 @@
+﻿@model SO.Urba.Models.ValueObjects.OrganizationVo
+
+@{
+    ViewBag.Title = "Add New Organization";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+        <hr />
+        <div class="span12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                Organization Name
+                @Html.EditorFor(model => model.name)
+            </div>
+            <div class="span3">
+                Has Fee Paid
+                @Html.EditorFor(model => model.hasPaidFee)
+            </div>
+            <div class="span2">
+                Fee Amount
+                @Html.TextBoxFor(model => model.feeAmount, new { style = "width:97%" })
+            </div>
+            <div class="span1">
+                Active
+                <div>
+                    @Html.EditorFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+ <div class="row">
+            <div class="span3">
+                First Name
+                @Html.EditorFor(model => model.contactInfo.firstName)
+            </div>
+            <div class="span3">
+                Last Name
+                @Html.EditorFor(model => model.contactInfo.lastName)
+            </div>
+            <div class="span3">
+                E-Mail
+                @Html.EditorFor(model => model.contactInfo.email)
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                Address
+                @Html.EditorFor(model => model.contactInfo.address)
+            </div>
+            <div class="span3">
+                City
+                @Html.TextBoxFor(model => model.contactInfo.city, new { style = "width:97%" })
+            </div>
+            <div class="span1" title="State abbreviation must contain 2 characters.">
+                State
+                @Html.TextBoxFor(model => model.contactInfo.state, new { style = "width:50px" })
+            </div>
+            <div class="span2" title="Zip code should be in '99999' or '99999-1234' format.">
+                Zip
+                @Html.TextBoxFor(model => model.contactInfo.zip, new { style = "width:97%" })
+            </div>
+        </div>
+        <div class="row">
+            <div class="span2">
+                Fax
+                @Html.TextBoxFor(model => model.contactInfo.fax, new { style = "width:98%" })
+            </div>
+            <div class="span2">
+                Cell Phone
+                @Html.TextBoxFor(model => model.contactInfo.cell, new { style = "width:98%" })
+            </div>
+            <div class="span2">
+                Home Phone
+                @Html.TextBoxFor(model => model.contactInfo.homePhone, new { style = "width:98%" })
+            </div>
+            <div class="span3">
+                Work Phone
+                @Html.TextBoxFor(model => model.contactInfo.workPhone, new { style = "width:95%" })
+            </div>
+        </div>
+    
+     <div  class="row">
+        <div class="span9">
+            <br />
+            <a href="@Url.Action("Index")" class="btn">Back to List</a>
+            <input type="submit" value="Create" class="btn pull-right btn-info" />
+        </div>
+    </div>   
+
+}

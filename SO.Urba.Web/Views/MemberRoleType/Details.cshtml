@@ -1,0 +1,67 @@
+﻿@model SO.Urba.Models.ValueObjects.MemberRoleTypeVo
+@using SO.Urba.Managers
+
+@{
+    ViewBag.Title = "Role Details";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="row">
+            <div class="span3">
+                Member Role ID
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.memberRoleTypeId)" readonly="true">
+            </div>
+            <div class="span3">
+                Role Name
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.name)" readonly="true">
+            </div>
+            <div class="span1">
+                Active
+                <div style="width:100%">
+                    @Html.DisplayFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span9">
+                Description
+                    <textarea rows="4" style="width:98%" class="form-control" readonly="true">@Model.description</textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                Created Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.created)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified Date
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.modified)" readonly="true">
+            </div>
+            <div class="span3">
+                Modified By
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.modifiedBy)" readonly="true">
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="span9">
+        <a href="@Url.Action("Index")" class="btn">Back to List</a>
+        @if (CurrentMember.hasRoleOf("admin"))
+        {
+            <a href="@Url.Action("Edit", new { id = Model.memberRoleTypeId})" class="btn pull-right btn-info">Edit</a>
+        }
+    </div>
+</div>

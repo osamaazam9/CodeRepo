@@ -1,0 +1,64 @@
+﻿@model object
+@using SO.Utility.Models.ViewModels
+@using SO.Urba.Models.ValueObjects
+@using SO.Urba.Models.ViewModels
+@using SO.Urba.Manager.Models.ViewModels
+@using SO.Utility.Extensions;
+@{
+
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+    var filter = (SearchFilterVm)Model;
+}
+
+<h3>@ViewBag.Title</h3>
+@if (ViewBag.Title == "Organizations")
+{
+    @Html.Partial("_RevenueSharing", new RevenueSharingVM())
+}
+@if (Model != null)
+{
+<form id="filterForm" class="span11 form-inline" method="get">
+    <hr />
+    @Html.Partial("_SearchFilter", @Model)
+    <div class="pull-right" style="padding-right:30px;">
+        @filter.paging.showingFrom to @filter.paging.showingTo of @filter.paging.totalCount
+    </div>
+    <br />
+    <br />
+
+    <br />
+    <div class="span11" style="padding: 10px; margin-left: -10px; text-align: right; ">
+        @if (ViewBag.Title == "Organizations Overview")
+        {
+            <button id="btnExport" class="btn">Export All Organizations</button>
+        }
+        @if (ViewBag.Title == "Organizations Overview Members")
+        { 
+        <div></div>
+        }
+        else
+        {
+            <a href="@Url.Action("Create")" class="btn" title="Create New"><i class="icon-plus"></i></a>
+            <button id="btnExport" class="btn" title="Export"><i class="icon-download"></i></button>
+        }
+    </div>
+
+    @Html.Partial("_List", @filter.result)
+    @Html.Partial("_Pagination", @filter.paging)
+</form>
+
+}
+
+<script type="text/javascript">
+
+    $("#btnSearch").click(function () {
+        var form = $("form#filterForm");
+        form.attr("action", "@Url.Action("Index", ViewContext.RouteData.Values["controller"].ToString())");
+    });
+
+    $("#btnExport").click(function () {
+        var form = $("form#filterForm");
+        form.attr("action", "@Url.Action("Export", ViewContext.RouteData.Values["controller"].ToString())");
+    });
+
+</script>

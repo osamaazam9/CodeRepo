@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="UrbaCMSEntityModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HomePageContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Section1" Type="nvarchar(max)" />
+          <Property Name="Section2" Type="nvarchar(max)" />
+          <Property Name="Section3" Type="nvarchar(max)" />
+          <Property Name="Section4" Type="nvarchar(max)" />
+          <Property Name="Section5" Type="nvarchar(max)" />
+          <Property Name="Section6" Type="nvarchar(max)" />
+          <Property Name="FooterSection1" Type="nvarchar(max)" />
+          <Property Name="FooterSection2" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="PageName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="UrbaCMSEntityModelStoreContainer">
+          <EntitySet Name="HomePageContent" EntityType="Self.HomePageContent" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UrbaCMSEntityModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HomePageContent">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Section1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Section2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Section3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Section4" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Section5" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Section6" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FooterSection1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FooterSection2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="PageName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="UrbaEntityModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HomePageContents" EntityType="Self.HomePageContent" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UrbaCMSEntityModelStoreContainer" CdmEntityContainer="UrbaEntityModel">
+          <EntitySetMapping Name="HomePageContents">
+            <EntityTypeMapping TypeName="UrbaCMSEntityModel.HomePageContent">
+              <MappingFragment StoreEntitySet="HomePageContent">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Section1" ColumnName="Section1" />
+                <ScalarProperty Name="Section2" ColumnName="Section2" />
+                <ScalarProperty Name="Section3" ColumnName="Section3" />
+                <ScalarProperty Name="Section4" ColumnName="Section4" />
+                <ScalarProperty Name="Section5" ColumnName="Section5" />
+                <ScalarProperty Name="Section6" ColumnName="Section6" />
+                <ScalarProperty Name="FooterSection1" ColumnName="FooterSection1" />
+                <ScalarProperty Name="FooterSection2" ColumnName="FooterSection2" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PageName" ColumnName="PageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

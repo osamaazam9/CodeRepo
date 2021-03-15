@@ -1,0 +1,56 @@
+﻿@model SO.Urba.Models.ValueObjects.MemberRoleTypeVo
+@using SO.Urba.Managers
+
+@{
+    ViewBag.Title = "Add New Role";
+    Layout = "~/Views/Shared/_InnerLayout.cshtml";
+}
+
+<h3>@ViewBag.Title</h3>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+        <hr /><div class="span12" style="color: red">
+            <br />
+            <b>
+                @Html.ValidationSummary()
+            </b>
+        </div>
+       
+
+        <div class="row">
+            <div class="span3">
+                Member Role ID
+                <input type="text" class="form-control" value="@Html.DisplayFor(model => model.memberRoleTypeId)" readonly="true">
+            </div>
+            <div class="span3">
+                Role Name
+                @Html.EditorFor(model => model.name)
+            </div>
+            <div class="span1">
+                Active
+                <div style="width:100%">
+                    @Html.EditorFor(model => model.isActive)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span9">
+                Description
+                @Html.TextAreaFor(model => model.description, new {rows="4", style="width:98%" })
+                   
+            </div>
+        </div>
+
+        <div  class="row">
+            <div class="span9">
+                <br />
+                <a href="@Url.Action("Index")" class="btn">Back to List</a>
+                <input type="submit" value="Create" class="btn pull-right btn-info" />
+            </div>
+        </div> 
+
+}
